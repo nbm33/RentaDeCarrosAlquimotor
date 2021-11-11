@@ -17,22 +17,22 @@ import {
 } from '@loopback/rest';
 import {
   Vehiculo,
-  Asesores,
+  Solicitud,
 } from '../models';
 import {VehiculoRepository} from '../repositories';
 
-export class VehiculoAsesoresController {
+export class VehiculoSolicitudController {
   constructor(
     @repository(VehiculoRepository) protected vehiculoRepository: VehiculoRepository,
   ) { }
 
-  @get('/vehiculos/{id}/asesores', {
+  @get('/vehiculos/{id}/solicituds', {
     responses: {
       '200': {
-        description: 'Array of Vehiculo has many Asesores',
+        description: 'Array of Vehiculo has many Solicitud',
         content: {
           'application/json': {
-            schema: {type: 'array', items: getModelSchemaRef(Asesores)},
+            schema: {type: 'array', items: getModelSchemaRef(Solicitud)},
           },
         },
       },
@@ -40,16 +40,16 @@ export class VehiculoAsesoresController {
   })
   async find(
     @param.path.string('id') id: string,
-    @param.query.object('filter') filter?: Filter<Asesores>,
-  ): Promise<Asesores[]> {
-    return this.vehiculoRepository.asesores(id).find(filter);
+    @param.query.object('filter') filter?: Filter<Solicitud>,
+  ): Promise<Solicitud[]> {
+    return this.vehiculoRepository.solicituds(id).find(filter);
   }
 
-  @post('/vehiculos/{id}/asesores', {
+  @post('/vehiculos/{id}/solicituds', {
     responses: {
       '200': {
         description: 'Vehiculo model instance',
-        content: {'application/json': {schema: getModelSchemaRef(Asesores)}},
+        content: {'application/json': {schema: getModelSchemaRef(Solicitud)}},
       },
     },
   })
@@ -58,22 +58,22 @@ export class VehiculoAsesoresController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(Asesores, {
-            title: 'NewAsesoresInVehiculo',
+          schema: getModelSchemaRef(Solicitud, {
+            title: 'NewSolicitudInVehiculo',
             exclude: ['id'],
             optional: ['vehiculoId']
           }),
         },
       },
-    }) asesores: Omit<Asesores, 'id'>,
-  ): Promise<Asesores> {
-    return this.vehiculoRepository.asesores(id).create(asesores);
+    }) solicitud: Omit<Solicitud, 'id'>,
+  ): Promise<Solicitud> {
+    return this.vehiculoRepository.solicituds(id).create(solicitud);
   }
 
-  @patch('/vehiculos/{id}/asesores', {
+  @patch('/vehiculos/{id}/solicituds', {
     responses: {
       '200': {
-        description: 'Vehiculo.Asesores PATCH success count',
+        description: 'Vehiculo.Solicitud PATCH success count',
         content: {'application/json': {schema: CountSchema}},
       },
     },
@@ -83,28 +83,28 @@ export class VehiculoAsesoresController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(Asesores, {partial: true}),
+          schema: getModelSchemaRef(Solicitud, {partial: true}),
         },
       },
     })
-    asesores: Partial<Asesores>,
-    @param.query.object('where', getWhereSchemaFor(Asesores)) where?: Where<Asesores>,
+    solicitud: Partial<Solicitud>,
+    @param.query.object('where', getWhereSchemaFor(Solicitud)) where?: Where<Solicitud>,
   ): Promise<Count> {
-    return this.vehiculoRepository.asesores(id).patch(asesores, where);
+    return this.vehiculoRepository.solicituds(id).patch(solicitud, where);
   }
 
-  @del('/vehiculos/{id}/asesores', {
+  @del('/vehiculos/{id}/solicituds', {
     responses: {
       '200': {
-        description: 'Vehiculo.Asesores DELETE success count',
+        description: 'Vehiculo.Solicitud DELETE success count',
         content: {'application/json': {schema: CountSchema}},
       },
     },
   })
   async delete(
     @param.path.string('id') id: string,
-    @param.query.object('where', getWhereSchemaFor(Asesores)) where?: Where<Asesores>,
+    @param.query.object('where', getWhereSchemaFor(Solicitud)) where?: Where<Solicitud>,
   ): Promise<Count> {
-    return this.vehiculoRepository.asesores(id).delete(where);
+    return this.vehiculoRepository.solicituds(id).delete(where);
   }
 }
