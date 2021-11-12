@@ -10,3 +10,8 @@ export * from './punto-alquiler-vehiculo.controller';
 export * from './solicitud-punto-alquiler.controller';
 export * from './contrato-solicitud.controller';
 export * from './tarjeta-credito-solicitud.controller';
+export * from './asesor.controller';
+export * from './administrador.controller';
+export * from './vehiculo.controller';
+export * from './solicitud.controller';
+export * from './punto-alquiler.controller';
