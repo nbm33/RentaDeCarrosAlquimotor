@@ -15,3 +15,4 @@ export * from './administrador.controller';
 export * from './vehiculo.controller';
 export * from './solicitud.controller';
 export * from './punto-alquiler.controller';
+export * from './administrador-usuario.controller';

@@ -1,4 +1,4 @@
-import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {belongsTo, Entity, model, property} from '@loopback/repository';
 import {PuntoAlquiler} from './punto-alquiler.model';
 
 @model()
@@ -34,6 +34,12 @@ export class Solicitud extends Entity {
     required: true,
   })
   FechaSolicitud: string;
+
+  @property({
+    type: 'number',
+    required: true,
+  })
+  ValorTotal: number;
 
   @property({
     type: 'string',

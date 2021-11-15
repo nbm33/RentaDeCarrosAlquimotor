@@ -1,4 +1,4 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Entity, hasMany, model, property} from '@loopback/repository';
 import {Vehiculo} from './vehiculo.model';
 
 @model()
@@ -11,18 +11,16 @@ export class PuntoAlquiler extends Entity {
   id?: string;
 
   @property({
-    type: 'array',
-    itemType: 'string',
+    type: 'string',
     required: true,
   })
-  Departamento: string[];
+  Departamento: string;
 
   @property({
-    type: 'array',
-    itemType: 'string',
+    type: 'string',
     required: true,
   })
-  Ciudad: string[];
+  Ciudad: string;
 
   @property({
     type: 'string',
