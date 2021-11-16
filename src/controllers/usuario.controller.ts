@@ -12,11 +12,10 @@ import {
   getModelSchemaRef, param, patch, post, put, requestBody,
   response
 } from '@loopback/rest';
-import fetch from "node-fetch";
 import {Usuario} from '../models';
 import {UsuarioRepository} from '../repositories';
 import {AutenticacionService} from '../services';
-//const fetch = require ('node-fetch');
+const fetch = require("node-fetch");
 
 export class UsuarioController {
   constructor(
@@ -47,12 +46,13 @@ export class UsuarioController {
 
     let clave = this.servicioAutenticacion.GenerarClave();
     let claveCifrada = this.servicioAutenticacion.CifrarClave(clave);
-    let u = await this.usuarioRepository.create(usuario);
     usuario.Clave = claveCifrada;
+    let u = await this.usuarioRepository.create(usuario);
+
 
     //Notificar Usuario usadno spider-flask
     let destino = usuario.CorreoElectronico;
-    let asunto = 'Registro en la plataforma';
+    let asunto = 'Registro Alquimotor';
     let contenido = `Hola ${usuario.Nombre}, su usuario es: ${usuario.CorreoElectronico}, y su contraseña será ${clave}`;
     fetch(`http://127.0.0.1:5000/envio-correo?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
       .then((data:any) => {

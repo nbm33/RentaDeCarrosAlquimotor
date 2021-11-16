@@ -14,6 +14,7 @@ export class AutenticacionService {
     return clave;
   }
 
+  //let claveCifrada = cryptoJS.MD5(clave).toString();
   CifrarClave(clave: string){
     let claveCifrada = cryptoJS.MD5(clave).toString();
     return claveCifrada;
