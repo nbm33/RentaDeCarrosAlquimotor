@@ -45,7 +45,6 @@ export class Usuario extends Entity {
   })
   Clave: string;
 
-
   constructor(data?: Partial<Usuario>) {
     super(data);
   }

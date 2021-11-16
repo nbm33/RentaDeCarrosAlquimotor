@@ -54,6 +54,11 @@ export class Solicitud extends Entity {
   @belongsTo(() => PuntoAlquiler)
   puntoAlquilerId: string;
 
+  @property({
+    type: 'string',
+  })
+  vehiculosId?: string;
+
   constructor(data?: Partial<Solicitud>) {
     super(data);
   }
