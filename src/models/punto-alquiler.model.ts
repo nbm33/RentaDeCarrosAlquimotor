@@ -1,5 +1,4 @@
 import {Entity, hasMany, model, property} from '@loopback/repository';
-import {Vehiculo} from './vehiculo.model';
 import {Vehiculos} from './vehiculos.model';
 
 @model()
@@ -28,9 +27,6 @@ export class PuntoAlquiler extends Entity {
     required: true,
   })
   Direccion: string;
-
-  @hasMany(() => Vehiculo)
-  vehiculos: Vehiculo[];
 
   @hasMany(() => Vehiculos)
   vehiculosF: Vehiculos[];

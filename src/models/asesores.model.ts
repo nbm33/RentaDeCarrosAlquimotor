@@ -1,6 +1,5 @@
-import {belongsTo, Entity, model, property, hasMany} from '@loopback/repository';
+import {belongsTo, Entity, hasMany, model, property} from '@loopback/repository';
 import {Usuario} from './usuario.model';
-import {Vehiculo} from './vehiculo.model';
 import {Vehiculos} from './vehiculos.model';
 
 @model()
@@ -14,9 +13,6 @@ export class Asesores extends Entity {
 
   @belongsTo(() => Usuario)
   usuarioId: string;
-
-  @hasMany(() => Vehiculo)
-  vehiculos: Vehiculo[];
 
   @hasMany(() => Vehiculos)
   vehiculosF: Vehiculos[];

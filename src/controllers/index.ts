@@ -8,16 +8,15 @@ export * from './cliente-solicitud.controller';
 export * from './cliente-usuario.controller';
 export * from './cliente.controller';
 export * from './contrato-solicitud.controller';
+export * from './contrato.controller';
 export * from './ping.controller';
-export * from './punto-alquiler-vehiculo.controller';
 export * from './punto-alquiler-vehiculos.controller';
 export * from './punto-alquiler.controller';
 export * from './solicitud-punto-alquiler.controller';
 export * from './solicitud.controller';
 export * from './tarjeta-credito-solicitud.controller';
+export * from './tarjeta-credito.controller';
 export * from './usuario.controller';
-export * from './vehiculo-solicitud.controller';
-export * from './vehiculo.controller';
 export * from './vehiculos-solicitud.controller';
 export * from './vehiculos.controller';
 

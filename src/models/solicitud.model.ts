@@ -46,11 +46,6 @@ export class Solicitud extends Entity {
   })
   clienteId?: string;
 
-  @property({
-    type: 'string',
-  })
-  vehiculoId?: string;
-
   @belongsTo(() => PuntoAlquiler)
   puntoAlquilerId: string;
 
