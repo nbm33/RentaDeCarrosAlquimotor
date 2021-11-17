@@ -1,16 +1,22 @@
-import {inject} from '@loopback/core';
-import {DefaultCrudRepository} from '@loopback/repository';
+import {inject, Getter} from '@loopback/core';
+import {DefaultCrudRepository, repository, BelongsToAccessor} from '@loopback/repository';
 import {MongodbDataSource} from '../datasources';
-import {Administrador, AdministradorRelations} from '../models';
+import {Administrador, AdministradorRelations, Usuario} from '../models';
+import {UsuarioRepository} from './usuario.repository';
 
 export class AdministradorRepository extends DefaultCrudRepository<
   Administrador,
   typeof Administrador.prototype.id,
   AdministradorRelations
 > {
+
+  public readonly usuario: BelongsToAccessor<Usuario, typeof Administrador.prototype.id>;
+
   constructor(
-    @inject('datasources.mongodb') dataSource: MongodbDataSource,
+    @inject('datasources.mongodb') dataSource: MongodbDataSource, @repository.getter('UsuarioRepository') protected usuarioRepositoryGetter: Getter<UsuarioRepository>,
   ) {
     super(Administrador, dataSource);
+    this.usuario = this.createBelongsToAccessorFor('usuario', usuarioRepositoryGetter,);
+    this.registerInclusionResolver('usuario', this.usuario.inclusionResolver);
   }
 }
