@@ -43,6 +43,7 @@ export class VehiculosController {
     return this.vehiculosRepository.create(vehiculos);
   }
 
+  @authenticate.skip()
   @get('/vehiculos/count')
   @response(200, {
     description: 'Vehiculos model count',
@@ -54,6 +55,7 @@ export class VehiculosController {
     return this.vehiculosRepository.count(where);
   }
 
+  @authenticate.skip()
   @get('/vehiculos')
   @response(200, {
     description: 'Array of Vehiculos model instances',
@@ -91,6 +93,7 @@ export class VehiculosController {
     return this.vehiculosRepository.updateAll(vehiculos, where);
   }
 
+  @authenticate.skip()
   @get('/vehiculos/{id}')
   @response(200, {
     description: 'Vehiculos model instance',
