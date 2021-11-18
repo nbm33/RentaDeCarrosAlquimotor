@@ -9,10 +9,11 @@ import {
 } from '@loopback/repository';
 import {
   del, get,
-  getModelSchemaRef, param, patch, post, put, requestBody,
+  getModelSchemaRef, HttpErrors, param, patch, post, put, requestBody,
   response
 } from '@loopback/rest';
-import {Usuario} from '../models';
+import {Llaves} from '../config/llaves';
+import {Credenciales, Usuario} from '../models';
 import {UsuarioRepository} from '../repositories';
 import {AutenticacionService} from '../services';
 const fetch = require("node-fetch");
@@ -24,6 +25,29 @@ export class UsuarioController {
     @service(AutenticacionService)
     public servicioAutenticacion: AutenticacionService
   ) {}
+
+  @post('/identificarUsuario')
+  @response(200, {
+    description: 'Identificacion de Usuarios'
+  })
+  async identificarUsuario(
+    @requestBody() credenciales: Credenciales
+  ){
+    let u = await this.servicioAutenticacion.IdentificarPersona(credenciales.usuario, credenciales.clave);
+    if(u){
+      let token = this.servicioAutenticacion.GenerarTokenJWT(u);
+      return{
+        datos: {
+        nombre: u.Nombre,
+        correo: u.CorreoElectronico,
+        id: u.id
+        },
+        tk: token
+      }
+    }else{
+      throw new HttpErrors[401]("Alquimotor encontro que sus datos son invalidos")
+    }
+  }
 
   @post('/usuarios')
   @response(200, {
@@ -54,7 +78,7 @@ export class UsuarioController {
     let destino = usuario.CorreoElectronico;
     let asunto = 'Registro Alquimotor';
     let contenido = `Hola ${usuario.Nombre}, su usuario es: ${usuario.CorreoElectronico}, y su contraseña será ${clave}`;
-    fetch(`http://127.0.0.1:5000/envio-correo?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
+    fetch(`${Llaves.urlServicioNotificaciones}/envio-correo?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
       .then((data:any) => {
         console.log(data);
       })
