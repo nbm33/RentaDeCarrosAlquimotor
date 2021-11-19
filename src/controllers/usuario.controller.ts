@@ -14,6 +14,7 @@ import {
 } from '@loopback/rest';
 import {Llaves} from '../config/llaves';
 import {Credenciales, Usuario} from '../models';
+import {RecuperarContrasena} from '../models/recuperar-contrasena.model';
 import {UsuarioRepository} from '../repositories';
 import {AutenticacionService} from '../services';
 const fetch = require("node-fetch");
@@ -44,6 +45,29 @@ export class UsuarioController {
         },
         tk: token
       }
+    }else{
+      throw new HttpErrors[401]("Alquimotor encontro que sus datos son invalidos")
+    }
+  }
+  //recuperar contraseña
+  @get('/recuperarContrasena')
+  @response(200, {
+    description: 'Recuperar Constraseña'
+  })
+  async recuperarContrasena(
+    @requestBody() recuperarContraseña: RecuperarContrasena
+  ){
+    let u = await this.servicioAutenticacion.IdentificarCorreo(recuperarContraseña.usuario);
+    if(u){
+      //Notificar Usuario usadno spider-flask
+      let destino = u.CorreoElectronico;
+      let asunto = 'Recuperar Contraseña';
+      let contenido = `Hola ${u.Nombre}, le recordamos que su contraseña es ${u.Clave}`;
+      fetch(`${Llaves.urlServicioNotificaciones}/envio-correo?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
+        .then((data:any) => {
+          console.log(data);
+        })
+        return u;
     }else{
       throw new HttpErrors[401]("Alquimotor encontro que sus datos son invalidos")
     }

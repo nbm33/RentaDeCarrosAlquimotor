@@ -27,10 +27,28 @@ export class AutenticacionService {
     let claveCifrada = cryptoJS.MD5(clave).toString();
     return claveCifrada;
   }
+  //Decdificar clave
+  DesifrarClave(clave: string){
+    let claveDesifrada = cryptoJS.AES.decrypt(clave).toString();
+    return claveDesifrada;
+  }
+
 
   IdentificarPersona(usuario: string, clave: string){
     try{
       let u = this.usuarioRepository.findOne({where: { CorreoElectronico: usuario, Clave: clave}});
+      if(u){
+        return u;
+      }
+      return false;
+    }catch{
+      return false;
+    }
+  }
+  // recuperar contraseña
+  IdentificarCorreo(usuario: string){
+    try{
+      let u = this.usuarioRepository.findOne({where: { CorreoElectronico: usuario}});
       if(u){
         return u;
       }

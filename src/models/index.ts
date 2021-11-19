@@ -9,3 +9,4 @@ export * from './tarjeta-credito.model';
 export * from './usuario.model';
 export * from './vehiculos.model';
 
+export * from './recuperar-contrasena.model';
