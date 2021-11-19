@@ -19,10 +19,14 @@ export class EstrategiaAdministrador implements AuthenticationStrategy {
     if(token){
       let datos = this.servicioAutenticacion.ValidarTokenJWT(token);
       if(datos){
-        let perfil: UserProfile = Object.assign({
-          nombre: datos.data.nombre
-        });
-        return perfil;
+        if(datos.data.rol === "administrador"){
+          let perfil: UserProfile = Object.assign({
+            nombre: datos.data.nombre
+          });
+          return perfil;
+        }else{
+          throw new HttpErrors[401]("Alquimotor: No es un rol valido")
+        }
       }else{
         throw new HttpErrors[401]("Alquimotor: El token incluido no es válido")
       }

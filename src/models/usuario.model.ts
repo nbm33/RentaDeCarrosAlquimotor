@@ -33,17 +33,23 @@ export class Usuario extends Entity {
   })
   CorreoElectronico: string;
 
-  @property({
-    type: 'string',
-    required: true,
-  })
-  Usuario: string;
+  // @property({
+  //   type: 'string',
+  //   required: true,
+  // })
+  // Usuario: string;
 
   @property({
     type: 'string',
     required: false,
   })
   Clave: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  Rol: string;
 
   constructor(data?: Partial<Usuario>) {
     super(data);

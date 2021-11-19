@@ -41,7 +41,8 @@ export class UsuarioController {
         datos: {
         nombre: u.Nombre,
         correo: u.CorreoElectronico,
-        id: u.id
+        id: u.id,
+        rol: u.Rol
         },
         tk: token
       }
