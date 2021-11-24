@@ -6,3 +6,4 @@ export * from './vehiculo.model';
 export * from './solicitud.model';
 export * from './punto-alquiler.model';
 export * from './tarjeta-credito.model';
+export * from './contrato.model';

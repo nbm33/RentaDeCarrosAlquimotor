@@ -1,5 +1,5 @@
 {
-  "name": "alquimotor",
+  "name": "crude-node",
   "version": "0.0.1",
   "description": "App para alquiler de vehiculos",
   "keywords": [
@@ -41,7 +41,7 @@
     "url": ""
   },
   "author": "Nicolas <bernalmedina.n@gmail.com>",
-  "license": "",
+  "license": "ISC",
   "files": [
     "README.md",
     "dist",
@@ -49,22 +49,22 @@
     "!*/__tests__"
   ],
   "dependencies": {
-    "@loopback/boot": "^3.4.4",
-    "@loopback/core": "^2.18.0",
-    "@loopback/repository": "^3.7.3",
-    "@loopback/rest": "^10.1.0",
-    "@loopback/rest-explorer": "^3.3.4",
-    "@loopback/service-proxy": "^3.2.4",
+    "@loopback/boot": "^4.0.0",
+    "@loopback/core": "^3.0.0",
+    "@loopback/repository": "^4.0.0",
+    "@loopback/rest": "^11.0.0",
+    "@loopback/rest-explorer": "^4.0.0",
+    "@loopback/service-proxy": "^4.0.0",
     "loopback-connector-mongodb": "^5.6.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
-    "@loopback/build": "^7.0.2",
-    "@loopback/eslint-config": "^11.0.2",
-    "@loopback/testlab": "^3.4.4",
+    "@loopback/build": "^8.0.0",
+    "@loopback/eslint-config": "^12.0.0",
+    "@loopback/testlab": "^4.0.0",
     "@types/node": "^10.17.60",
     "eslint": "^7.32.0",
     "source-map-support": "^0.5.20",
-    "typescript": "~4.4.4"
+    "typescript": "~4.5.2"
   }
 }

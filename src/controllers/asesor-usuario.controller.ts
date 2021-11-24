@@ -6,21 +6,21 @@ import {
   getModelSchemaRef, param
 } from '@loopback/rest';
 import {
-  Cliente,
+  Asesor,
   Usuario
 } from '../models';
-import {ClienteRepository} from '../repositories';
+import {AsesorRepository} from '../repositories/asesor.repository';
 
-export class ClienteUsuarioController {
+export class AsesorUsuarioController {
   constructor(
-    @repository(ClienteRepository)
-    public clienteRepository: ClienteRepository,
+    @repository(AsesorRepository)
+    public asesorRepository: AsesorRepository,
   ) { }
 
-  @get('/clientes/{id}/usuario', {
+  @get('/asesors/{id}/usuario', {
     responses: {
       '200': {
-        description: 'Usuario belonging to Cliente',
+        description: 'Usuario belonging to Asesor',
         content: {
           'application/json': {
             schema: {type: 'array', items: getModelSchemaRef(Usuario)},
@@ -30,8 +30,8 @@ export class ClienteUsuarioController {
     },
   })
   async getUsuario(
-    @param.path.string('id') id: typeof Cliente.prototype.id,
+    @param.path.string('id') id: typeof Asesor.prototype.id,
   ): Promise<Usuario> {
-    return this.clienteRepository.usuario(id);
+    return this.asesorRepository.usuario(id);
   }
 }
