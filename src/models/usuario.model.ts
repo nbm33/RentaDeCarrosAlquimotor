@@ -31,7 +31,7 @@ export class Usuario extends Entity {
     type: 'string',
     required: true,
   })
-  Correoelectronico: string;
+  CorreoElectronico: string;
 
   @property({
     type: 'string',
@@ -39,12 +39,12 @@ export class Usuario extends Entity {
   })
   Usuario: string;
 
-
   @property({
     type: 'string',
     required: true,
   })
-  Clave: string;
+  clave: string;
+
 
   constructor(data?: Partial<Usuario>) {
     super(data);

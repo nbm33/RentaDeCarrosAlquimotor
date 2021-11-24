@@ -1,4 +1,4 @@
-import {Entity, model, property, belongsTo, hasMany} from '@loopback/repository';
+import {belongsTo, Entity, hasMany, model, property} from '@loopback/repository';
 import {Usuario} from './usuario.model';
 import {Vehiculo} from './vehiculo.model';
 
@@ -15,48 +15,12 @@ export class Administrador extends Entity {
     type: 'string',
     required: true,
   })
-  Nombres: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  Apellidos: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  cedula: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  correoelectronico: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  usuario: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  clave: string;
-
-  @belongsTo(() => Usuario)
-  usuarioId: string;
-
-  @property({
-    type: 'string',
-  })
-  vehiculoId?: string;
 
   @hasMany(() => Vehiculo)
   vehiculos: Vehiculo[];
+
+  @belongsTo(() => Usuario)
+  usuarioId: string;
 
   constructor(data?: Partial<Administrador>) {
     super(data);

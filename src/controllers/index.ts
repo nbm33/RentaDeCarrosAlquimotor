@@ -1,11 +1,8 @@
-export * from './administrador-usuario.controller';
 export * from './administrador-vehiculo.controller';
 export * from './administrador.controller';
-export * from './asesor-usuario.controller';
 export * from './asesor-vehiculo.controller';
 export * from './asesor.controller';
 export * from './cliente-solicitud.controller';
-export * from './cliente-usuario.controller';
 export * from './cliente.controller';
 export * from './contrato-solicitud.controller';
 export * from './contrato.controller';
@@ -16,7 +13,9 @@ export * from './solicitud-punto-alquiler.controller';
 export * from './solicitud.controller';
 export * from './targeta-credito.controller';
 export * from './tarjeta-credito-solicitud.controller';
-export * from './usuario.controller';
 export * from './vehiculo-solicitud.controller';
 export * from './vehiculo.controller';
-
+export * from './administrador-usuario.controller';
+export * from './asesor-usuario.controller';
+export * from './cliente-usuario.controller';
+export * from './usuario.controller';
