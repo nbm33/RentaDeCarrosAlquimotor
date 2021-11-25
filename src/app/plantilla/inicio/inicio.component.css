@@ -1,0 +1,12 @@
+
+.foto{
+  height: 100%;
+}
+
+.fotoFondo{
+  background:url("hhttp://localhost:4200/assets/img/imagen1.jpeg") no-repeat center center scroll;
+  background-size:cover;
+  height: 500px;
+}
+
+
