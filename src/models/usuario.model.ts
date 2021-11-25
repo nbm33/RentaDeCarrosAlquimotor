@@ -41,7 +41,7 @@ export class Usuario extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    required: false,
   })
   Clave: string;
 
