@@ -21,6 +21,10 @@ import { ErrorComponent } from './plantilla/error/error.component';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+    BarraNavegacionComponent,
+    PiePaginaComponent
+  ]
 })
 export class AppModule { }
