@@ -4,6 +4,7 @@ import { CambioClaveComponent } from './modulos/seguridad/cambio-clave/cambio-cl
 import { IdentificacionComponent } from './modulos/seguridad/identificacion/identificacion.component';
 import { ErrorComponent } from './plantilla/error/error.component';
 import { InicioComponent } from './plantilla/inicio/inicio.component';
+import { CrearUsuarioComponent } from './modulos/administracion/usuario/crear-usuario/crear-usuario.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   { 
     path: 'cambio-clave',
     component: CambioClaveComponent
+  },
+  { 
+    path: 'crear-usuario',
+    component: CrearUsuarioComponent
   },
   // { 
   //   path: 'seguridad/cambio-clave',

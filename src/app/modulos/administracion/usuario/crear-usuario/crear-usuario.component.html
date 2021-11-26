@@ -1,1 +1,85 @@
-<p>crear-usuario works!</p>
+<div class="container">
+    <br>
+    <br>
+    <img class="mb-4" src="assets/img/imagen4.jpg" alt="">
+    <h1 class="h3 mb-3 fw-normal">Por favor ingresar sus datos:</h1>
+    <form class="row g-3 needs-validation" novalidate>
+      <div class="col-md-6">
+        <label for="validarNombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="validarNombre" required>
+        <div class="valid-feedback">
+          Este campo es requerido!
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="validarApellido" class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="validarApellido" required>
+        <div class="valid-feedback">
+          Este campo es requerido!
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="validaeCorreo" class="form-label">Correo Electronico</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text" id="inputGroupPrepend">@</span>
+          <input type="text" class="form-control" id="validaeCorreo" aria-describedby="inputGroupPrepend" required>
+          <div class="invalid-feedback">
+            Debe ingresar un correo electronico valido!
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="validarCelular" class="form-label">Celular</label>
+        <input type="text" class="form-control" id="vvalidarCelular" required>
+        <div class="invalid-feedback">
+          Ingrese un numero de celular!
+        </div>
+      </div>
+      <div class="col-md-12">
+        <label for="validationCustom04" class="form-label">Tipo de usuario</label>
+        <select class="form-select" id="validationCustom04" required>
+          <option selected disabled value="">Selecciona.....</option>
+          <option>Administrador</option>
+          <option>Asesor</option>
+          <option>Cliente</option>
+        </select>
+        <div class="invalid-feedback">
+          Debe seleccionar un tipo de usuario.
+        </div>
+      </div>
+      <div class="col-12">
+        <br>
+        <br>
+        <button class="btn btn-success" type="submit">INGRESAR</button>
+      </div>
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  
+  <!-- src="recursos/funciones.js" -->
+  
+  <script type="text/javascript" > 
+  (function () {
+      'use strict'
+    
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+    
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+    
+            form.classList.add('was-validated')
+          }, false)
+        })
+  })()  
+  
+  </script>
