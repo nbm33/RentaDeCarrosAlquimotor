@@ -8,3 +8,4 @@ export * from './tarjeta-credito.model';
 export * from './contrato.model';
 export * from './vehiculo.model';
 export * from './punto-alquiler.model';
+export * from './credenciales.model';
