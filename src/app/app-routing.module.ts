@@ -5,6 +5,9 @@ import { IdentificacionComponent } from './modulos/seguridad/identificacion/iden
 import { ErrorComponent } from './plantilla/error/error.component';
 import { InicioComponent } from './plantilla/inicio/inicio.component';
 import { CrearUsuarioComponent } from './modulos/administracion/usuario/crear-usuario/crear-usuario.component';
+import { RecuperarClaveComponent } from './modulos/seguridad/recuperar-clave/recuperar-clave.component';
+import { VehiculosComponent } from './plantilla/vehiculos/vehiculos.component';
+import { ContactoComponent } from './plantilla/contacto/contacto.component';
 
 const routes: Routes = [
   {
@@ -16,13 +19,21 @@ const routes: Routes = [
     pathMatch: "full",
     redirectTo: "/inicio"
   },
+  {
+    path:"vehiculo",
+    component: VehiculosComponent
+  },
+  {
+    path:"contacto",
+    component: ContactoComponent
+  },
   { 
     path: 'identificacion',
     component: IdentificacionComponent
   },
   { 
     path: 'recuperar-clave',
-    component: IdentificacionComponent
+    component: RecuperarClaveComponent
   },
   { 
     path: 'cambio-clave',
