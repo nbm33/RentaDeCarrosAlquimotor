@@ -3,31 +3,29 @@
   <br>
   <br>
   <main class="form-signin">
-    <form>
+    <form (ngSubmit)="guardar()" [formGroup]="formValidador">
       <img class="mb-4" src="assets/img/imagen4.jpg" alt="">
       <h1 class="h3 mb-3 fw-normal">Por favor ingresar sus datos de usuario:</h1>
 
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Correo electrónico</label>
+        <input type="text" class="form-control" FormControlName="usuario" placeholder="name@example.com">
+        <label for="usuario">Correo electrónico</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Clave</label>
+        <input type="text" class="form-control" FormControlName="clave" placeholder="Password">
+        <label for="clave">Clave</label>
       </div>
       <div>
         <p>
           <br>
-          <a routerLink="/recuperar-clave" class="text-reset" type="submit">Recordar calve!</a>
+          <a routerLink="/seguridad/recuperar-clave" class="text-reset">Recordar calve!</a>
         </p>
       </div>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Recordarme
-        </label>
-      </div>
-      <button class="w-100 btn btn-lg btn-success" type="submit">Ingresar</button>
+      <button type="submit" class="w-100 btn-primary float-end btn-lg btn-success" >Ingresar</button>
       <p class="mt-5 mb-3 text-muted">&copy; Alquimotor–2021</p>
     </form>
   </main>
 </div>
+
+<!-- PARA DESABILITAR BOTON [disabled]="!formValidador.valid"
+[disabled]="formValidador.invalid" -->

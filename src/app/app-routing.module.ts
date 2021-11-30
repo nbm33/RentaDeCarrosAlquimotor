@@ -28,37 +28,13 @@ const routes: Routes = [
     component: ContactoComponent
   },
   { 
-    path: 'identificacion',
-    component: IdentificacionComponent
+    path: 'seguridad',
+    loadChildren: () => import("./modulos/seguridad/seguridad.module").then(x => x.SeguridadModule)
   },
   { 
-    path: 'recuperar-clave',
-    component: RecuperarClaveComponent
+    path: 'administracion',
+    loadChildren: () => import("./modulos/administracion/administracion.module").then(x => x.AdministracionModule)
   },
-  { 
-    path: 'cambio-clave',
-    component: CambioClaveComponent
-  },
-  { 
-    path: 'crear-usuario',
-    component: CrearUsuarioComponent
-  },
-  // { 
-  //   path: 'seguridad/cambio-clave',
-  //   component: CambioClaveComponent
-  // },
-  // { 
-  //   path: 'seguridad/cambio-clave',
-  //   component: CambioClaveComponent
-  // },
-  // { 
-  //   path: 'seguridad',
-  //   loadChildren: () => import("./modulos/seguridad/seguridad.module").then(x => x.SeguridadModule)
-  // },
-  // { 
-  //   path: 'administracion',
-  //   loadChildren: () => import("./modulos/administracion/administracion.module").then(x => x.AdministracionModule)
-  // },
   {
     path:"**",
     component: ErrorComponent
