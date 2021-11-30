@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-identificacion',
@@ -7,19 +7,20 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./identificacion.component.css']
 })
 export class IdentificacionComponent {
-
-  formValidador = this.fb.group({
-    usuario: ['' , [Validators.required, Validators.email]],
-    clave: ['' , Validators.required]
+  fbValitador = this.fb.group({
+    usuario: ['', [Validators.required, Validators.email]],
+    clave: ['', [Validators.required]],
   });
 
   constructor(private fb: FormBuilder) { }
 
-  onSubmit(){
-      let usuario = this.formValidador.controls['usuario'].value;
-      let clave =  this.formValidador.controls['clave'].value;
-      console.log(this.formValidador.value)
-  };
+  onSubmit() {
+    let usuario = this.fbValitador.controls['usuario'].value;
+    let clave =  this.fbValitador.controls['clave'].value;
+    alert(usuario)
+    alert(clave)
+    console.log(this.fbValitador.value);
+  }
 }
 
 

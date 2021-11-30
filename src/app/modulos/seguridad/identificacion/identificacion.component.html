@@ -1,29 +1,24 @@
-<div class="container">
-  <br>
-  <br>
-  <br>
-    <form (ngSubmit)="onSubmit()" [formGroup]="formValidador">
-      <img class="mb-4" src="assets/img/imagen4.jpg" alt="">
-      <h1 class="h3 mb-3 fw-normal">Por favor ingresar sus datos de usuario:</h1>
-
-      <div class="form-floating">
-        <input type="email" class="form-control" FormControlName="usuario" placeholder="name@example.com">
-        <label for="usuario">Correo electrónico</label>
+<div class="abs-center">
+  <form [formGroup]="fbValitador" (ngSubmit)="onSubmit()">
+      <div id="form1">
+          <img class="mb-4" src="assets/img/imagen4.jpg" alt="">
+          <h1 class="h3 mb-3 fw-normal">Por favor ingresar sus datos de usuario:</h1>
+      </div>  
+      <div class="form">
+          <label for="usuario">Usuario: </label>
+          <input id="usuario" type="text" formControlName="usuario" class="form-control" placeholder="nombre@ejemplo.com">
       </div>
-      <div class="form-floating">
-        <input type="text" class="form-control" FormControlName="clave" placeholder="Password">
-        <label for="clave">Clave</label>
+      <div class="form">
+          <label for="clave">Clave: </label>
+          <input id="clave" type="text" formControlName="clave" class="form-control" placeholder=".....">  
       </div>
-      <div>
-        <p>
+      <p>
           <br>
           <a routerLink="/seguridad/recuperar-clave" class="text-reset">Recordar calve!</a>
-        </p>
+      </p>
+      <div>
+          <button type="submit" [disabled]="!fbValitador.valid" class="w-100 btn-primary float-end btn-lg btn-success">Enviar</button>
       </div>
-      <button type="submit" class="w-100 btn-primary float-end btn-lg btn-success" >Ingresar</button>
       <p class="mt-5 mb-3 text-muted">&copy; Alquimotor–2021</p>
-    </form>
+  </form>
 </div>
-
-<!-- PARA DESABILITAR BOTON [disabled]="!formValidador.valid"
-[disabled]="formValidador.invalid" -->

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -7,12 +7,12 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./editar-usuario.component.css']
 })
 export class EditarUsuarioComponent {
-  fbValitador = new FormGroup({
-    usuario: new FormControl(''),
-    clave: new FormControl(''),
+  fbValitador = this.fb.group({
+    usuario: ['', [Validators.required, Validators.email]],
+    clave: ['', [Validators.required]],
   });
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   onSubmit() {
     console.log(this.fbValitador.value);
