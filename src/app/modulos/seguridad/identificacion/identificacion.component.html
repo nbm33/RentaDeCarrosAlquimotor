@@ -2,13 +2,12 @@
   <br>
   <br>
   <br>
-  <main class="form-signin">
-    <form (ngSubmit)="guardar()" [formGroup]="formValidador">
+    <form (ngSubmit)="onSubmit()" [formGroup]="formValidador">
       <img class="mb-4" src="assets/img/imagen4.jpg" alt="">
       <h1 class="h3 mb-3 fw-normal">Por favor ingresar sus datos de usuario:</h1>
 
       <div class="form-floating">
-        <input type="text" class="form-control" FormControlName="usuario" placeholder="name@example.com">
+        <input type="email" class="form-control" FormControlName="usuario" placeholder="name@example.com">
         <label for="usuario">Correo electrónico</label>
       </div>
       <div class="form-floating">
@@ -24,7 +23,6 @@
       <button type="submit" class="w-100 btn-primary float-end btn-lg btn-success" >Ingresar</button>
       <p class="mt-5 mb-3 text-muted">&copy; Alquimotor–2021</p>
     </form>
-  </main>
 </div>
 
 <!-- PARA DESABILITAR BOTON [disabled]="!formValidador.valid"

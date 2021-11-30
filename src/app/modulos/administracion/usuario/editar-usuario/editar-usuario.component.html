@@ -1,1 +1,25 @@
-<p>editar-usuario works!</p>
+<div class="abs-center">
+    <form [formGroup]="fbValitador" (ngSubmit)="onSubmit()">
+        <div id="form1">
+            <img class="mb-4" src="assets/img/imagen4.jpg" alt="">
+            <h1 class="h3 mb-3 fw-normal">Por favor ingresar sus datos de usuario:</h1>
+        </div>  
+        <div class="form">
+            <label for="usuario">Usuario: </label>
+            <input id="usuario" type="text" formControlName="usuario" class="form-control" placeholder="name@example.com">
+        </div>
+        <div class="form">
+            <label for="clave">Clave: </label>
+            <input id="clave" type="text" formControlName="clave" class="form-control" placeholder="Password">  
+        </div>
+        <p>
+            <br>
+            <a routerLink="/seguridad/recuperar-clave" class="text-reset">Recordar calve!</a>
+        </p>
+        <div>
+            <button type="submit" [disabled]="!fbValitador.valid" class="w-100 btn-primary float-end btn-lg btn-success">Enviar</button>
+        </div>
+    </form>
+</div>
+<p class="mt-5 mb-3 text-muted">&copy; Alquimotor–2021</p>
+
