@@ -24,4 +24,8 @@ export class SeguridadService {
     })
   }
 
+  almacenarSesion(datos: ModeloIdentificar) {
+
+  };
+  
 }
