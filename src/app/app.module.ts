@@ -13,6 +13,7 @@ import { SeguridadModule } from './modulos/seguridad/seguridad.module';
 import { VehiculosComponent } from './plantilla/vehiculos/vehiculos.component';
 import { ContactoComponent } from './plantilla/contacto/contacto.component';
 import { SolicitudComponent } from './plantilla/solicitud/solicitud.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SolicitudComponent } from './plantilla/solicitud/solicitud.component';
     AppRoutingModule,
     AdministracionModule,
     SeguridadModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [
