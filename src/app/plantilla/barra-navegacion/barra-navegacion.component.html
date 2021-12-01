@@ -18,12 +18,21 @@
       </ul>
       <div>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a routerLink="/administracion/crear-usuario"><button class="btn btn-danger" type="submit">Registro</button></a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/seguridad/identificar"><button class="btn btn-danger" type="submit">Inicio Sesión</button></a>
-        </li>
+          <li *ngIf="seInicioSesion" class="nav-item">
+            <a class="nav-link" href="/seguridad/recuperar-clave">Recuperar Clave</a>
+          </li>
+          <li *ngIf="seInicioSesion" class="nav-item">
+            <a class="nav-link" href="/seguridad/cambio-clave">Cambiar Clave</a>
+          </li>
+          <li *ngIf="seInicioSesion" class="nav-item">
+            <a routerLink="/seguridad/cerrar-sesion"><button class="btn btn-dark" type="submit">Cerrar Sesión</button></a>
+          </li>
+          <li *ngIf="!seInicioSesion" class="nav-item">
+            <a routerLink="/administracion/crear-usuario"><button class="btn btn-danger" type="submit">Registro</button></a>
+          </li>
+          <li *ngIf="!seInicioSesion" class="nav-item">
+            <a routerLink="/seguridad/identificar"><button class="btn btn-danger" type="submit">Inicio Sesión</button></a>
+          </li>
         </ul>
       </div>
     </div>
