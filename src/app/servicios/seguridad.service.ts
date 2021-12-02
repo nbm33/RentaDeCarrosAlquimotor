@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, tap } from 'rxjs';
+import { ModeloClave } from '../modelos/clave.modelo';
 import { ModeloDatos } from '../modelos/datos.modelo';
 import { ModeloIdentificar } from '../modelos/identificar.modelo';
 import { ModeloRegistrar } from '../modelos/registrar.modelo';
@@ -13,6 +14,7 @@ export class SeguridadService {
 
   url = "http://localhost:3000/";
   datosUsuarioEnSesion = new BehaviorSubject<ModeloIdentificar>(new ModeloIdentificar());
+  rolUsuarioEnSesion = new BehaviorSubject<ModeloDatos>(new ModeloDatos());
 
   constructor(private http: HttpClient) { 
     this.VerificarSesionActiva();
@@ -43,6 +45,16 @@ export class SeguridadService {
     })
   }
 
+  RecuperarClave(usuario:string): Observable<ModeloClave>{
+    return this.http.post<ModeloClave>(`${this.url}/recuperarContrasena`, {
+      usuario: usuario
+    },{
+      headers: new HttpHeaders({
+
+      })
+    })
+  }
+
   AlmacenarSesion(datos: ModeloIdentificar) {
     datos.estaIdentificado = true;
     let stringIngreso = JSON.stringify(datos);
@@ -53,6 +65,11 @@ export class SeguridadService {
   AlmacenarUsuario(datos: ModeloRegistrar) {
     let stringUsuario = JSON.stringify(datos);
     localStorage.setItem("datosUsuario",stringUsuario);
+  };
+
+  AlmacenarClave(datos: ModeloClave) {
+    let stringUsuario = JSON.stringify(datos);
+    localStorage.setItem("datosClave",stringUsuario);
   };
 
   ObtenerInformacionSesion() {
@@ -67,6 +84,10 @@ export class SeguridadService {
 
   ObtenerDatosSesion(){
     return this.datosUsuarioEnSesion.asObservable();
+  }
+
+  ObtenerRolSesion(){
+    return this.rolUsuarioEnSesion.asObservable();
   }
 
   EliminarInformacionSesion() {

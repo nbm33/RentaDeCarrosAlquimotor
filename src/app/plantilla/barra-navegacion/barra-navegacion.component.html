@@ -18,8 +18,20 @@
       </ul>
       <div>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li *ngIf="seInicioSesion" class="nav-item">
-            <a class="nav-link" href="/seguridad/recuperar-clave">Recuperar Clave</a>
+          <li *ngIf="usuarioRol === 'Cliente'" class="nav-item">
+            <a class="nav-link" href="Inicio">Reservar</a>
+          </li>
+          <li *ngIf="usuarioRol === 'Cliente'" class="nav-item">
+            <a class="nav-link" href="Inicio">Mis Reservas</a>
+          </li>
+          <li *ngIf="usuarioRol === 'Administrador'" class="nav-item">
+            <a class="nav-link" href="/administracion/crear-vehiculo">Crear Vehiculo</a>
+          </li>
+          <li *ngIf="usuarioRol === 'Administrador'" class="nav-item">
+            <a class="nav-link" href="/administracion/crear-asesor">Crear Asesor</a>
+          </li>
+          <li *ngIf="usuarioRol === 'Administrador'" class="nav-item">
+            <a class="nav-link" href="/seguridad/recuperar-clave">Crear Punto</a>
           </li>
           <li *ngIf="seInicioSesion" class="nav-item">
             <a class="nav-link" href="/seguridad/cambio-clave">Cambiar Clave</a>

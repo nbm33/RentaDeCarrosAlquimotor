@@ -1,73 +1,28 @@
-<div class="container">
-  <br>
-  <br>
-  <br>
-  <form class="form-signin" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <h1 class="h3 mb-3 fw-normal">Por favor ingresar el correo con el que te registraste, enviaremos tu clave a este correo:</h1>
+<div class="abs-center">
+  <form [formGroup]="fbValitador" (ngSubmit)="onSubmit()">
     <br>
-    <div class="form-floating">
-      <input class="form-control" id="txtCorreo" type="text" formControlName="RecuperarClave" placeholder="name@example.com ">
-      <label  for="txtCorreo" >Correo Electónico: </label>
-    </div>
-    <button class="w-100 btn btn-lg btn-success" type="submit" [disabled]="!form.valid">ENVIAR SOLICITUD</button>
+    <br>
+      <div id="form1">
+          <img class="mb-4" src="assets/img/imagen4.jpg" alt="">
+          <h1>Recuperar Clave.</h1>
+          <h3 class="h2 mb-3 fw-normal">Por favor ingresar el correo con el que te registraste, enviaremos tu clave a este correo:</h3>
+      </div>  
+      <br>
+      <div class="row">
+        <div class="col-md-12 form">
+            <label for="usuario">Correo Electónico: </label>
+            <input id="usuario" type="text" formControlName="usuario" class="form-control" placeholder="tu@ejemplo.com">
+        </div>
+      </div>
+      <div>
+          <button type="submit" [disabled]="!fbValitador.valid" class="w-100 btn-primary float-end btn-lg btn-success">Enviar Solicitud</button>
+      </div>
+      <p class="mt-5 mb-3 text-muted">&copy; Alquimotor–2021</p>
+      <br>
+      <br>
   </form>
-  <br>
-  <br>
-  <br>
-  <br>
 </div>
 
-<!-- ingresar en input etiqueta: formControlName="RecuperarClave" -->
-
-<!-- <div class="container">
-    <br>
-    <br>
-    <br>
-    <main class="form-signin">
-      <form>
-        <h1 class="h3 mb-3 fw-normal">Por favor ingresar el correo con el que te registraste, y te enviaremos tu clave:</h1>
-        <br>
-        <br>
-        <div class="form-floating">
-          <input type="text" class="form-control" id="RecuperarClave" placeholder="name@example.com">
-          <label for="RecuperarClave">Correo electrónico</label>
-        </div>
-        
-        <button class="w-100 btn btn-lg btn-success" type="submit">Enviar</button>
-        <p class="mt-5 mb-3 text-muted">&copy; Alquimotor–2021</p>
-      </form>
-    </main>
-</div> -->
-
-<!-- <div class="register-form">
-    <form [FormGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-  
-      <div class="form-group">
-        <label>Email</label>
-        <input
-          type="text"
-          formControlName="email"
-          class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
-        />
-        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-          <div *ngIf="f['email'].errors['required']">Email is required</div>
-          <div *ngIf="f['email'].errors['email']">Email is invalid</div>
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Register</button>
-        <button
-          type="button"
-          (click)="onReset()"
-          class="btn btn-warning float-right">
-          Reset
-        </button>
-      </div>
-    </form>
-</div> -->
 
 
 

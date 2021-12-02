@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component} from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 
 @Component({
@@ -7,31 +9,25 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
   templateUrl: './recuperar-clave.component.html',
   styleUrls: ['./recuperar-clave.component.css']
 })
-export class RecuperarClaveComponent implements OnInit {
-  form = new FormGroup({
-    email: new FormControl('')
+export class RecuperarClaveComponent {
+  fbValitador = this.fb.group({
+    usuario: ['', [Validators.required]],
   });
 
-
-  constructor( private formBuilder: FormBuilder) { }
-
-  ngOnInit(): void {
-
-  }
+  constructor(private fb: FormBuilder, private servicioSeguridad: SeguridadService, private router: Router) { }
   
   onSubmit() {
-    if (this.form.valid) {
-      console.log(this.form);
-      this.recuperarClave();
-      // this.recuperarClave();
-    } else {
-      console.warn(this.form.value);
+    console.log(this.fbValitador.value);
+    let usuario = this.fbValitador.controls['usuario'].value;
+    this.servicioSeguridad.RecuperarClave(usuario).subscribe((datos:any) => {
+      this.servicioSeguridad.AlmacenarClave(datos);
+      alert("Alquimotor: Registro Valido, le llegara un su correo electrónico la clave.");
+      this.router.navigate(["/inicio"])
+    }, (error:any) => {
+      //KO
+      alert("Alquimotor: Registro invalidos")
     }
-  }
-
-  recuperarClave() {
-    let correo = this.form.value.RecuperarClave;
-    console.log(correo);
+    )
   }
 
 }

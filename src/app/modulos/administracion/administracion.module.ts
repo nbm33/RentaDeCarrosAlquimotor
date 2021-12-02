@@ -7,6 +7,10 @@ import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.com
 import { EditarUsuarioComponent } from './usuario/editar-usuario/editar-usuario.component';
 import { EliminarUsuarioComponent } from './usuario/eliminar-usuario/eliminar-usuario.component';
 import { BuscarUsuarioComponent } from './usuario/buscar-usuario/buscar-usuario.component';
+import { CrearVehiculoComponent } from './vehiculos/crear-vehiculo/crear-vehiculo.component';
+import { BuscarVehiculoComponent } from './vehiculos/buscar-vehiculo/buscar-vehiculo.component';
+import { EliminarVehiculoComponent } from './vehiculos/eliminar-vehiculo/eliminar-vehiculo.component';
+import { EditarVehiculoComponent } from './vehiculos/editar-vehiculo/editar-vehiculo.component';
 
 
 
@@ -15,7 +19,11 @@ import { BuscarUsuarioComponent } from './usuario/buscar-usuario/buscar-usuario.
     CrearUsuarioComponent,
     EditarUsuarioComponent,
     EliminarUsuarioComponent,
-    BuscarUsuarioComponent
+    BuscarUsuarioComponent,
+    CrearVehiculoComponent,
+    BuscarVehiculoComponent,
+    EliminarVehiculoComponent,
+    EditarVehiculoComponent
   ],
   imports: [
     CommonModule,
