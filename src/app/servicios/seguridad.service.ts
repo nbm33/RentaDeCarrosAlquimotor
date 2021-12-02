@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ModeloDatos } from '../modelos/datos.modelo';
 import { ModeloIdentificar } from '../modelos/identificar.modelo';
+import { ModeloRegistrar } from '../modelos/registrar.modelo';
 
 
 @Injectable({
@@ -28,11 +29,30 @@ export class SeguridadService {
     })
   }
 
+  Registrar(nombre:string, apellido:string, correo:string, celular:string, rol:string): Observable<ModeloRegistrar>{
+    return this.http.post<ModeloRegistrar>(`${this.url}/usuarios`, {
+      Nombre: nombre,
+      Apellido: apellido,
+      CorreoElectronico: correo,
+      Cedula: celular,
+      Rol: rol
+    },{
+      headers: new HttpHeaders({
+
+      })
+    })
+  }
+
   AlmacenarSesion(datos: ModeloIdentificar) {
     datos.estaIdentificado = true;
     let stringIngreso = JSON.stringify(datos);
     localStorage.setItem("datosSesion",stringIngreso);
     this.RefrescarDatosSesion(datos);
+  };
+
+  AlmacenarUsuario(datos: ModeloRegistrar) {
+    let stringUsuario = JSON.stringify(datos);
+    localStorage.setItem("datosUsuario",stringUsuario);
   };
 
   ObtenerInformacionSesion() {
