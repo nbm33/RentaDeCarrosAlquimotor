@@ -51,7 +51,7 @@ export class UsuarioController {
     }
   }
   //recuperar contraseña
-  @get('/recuperarContrasena')
+  @post('/recuperarContrasena')
   @response(200, {
     description: 'Recuperar Constraseña'
   })
