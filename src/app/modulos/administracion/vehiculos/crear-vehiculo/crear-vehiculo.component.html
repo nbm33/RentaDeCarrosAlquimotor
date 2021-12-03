@@ -1,6 +1,5 @@
-<!-- <div class="abs-center">
-    <!-- <form [formGroup]="fbValitador" (ngSubmit)="onSubmit()"></form> -->
-    <!-- <form>
+<div class="abs-center">
+    <form [formGroup]="fbValitador" (ngSubmit)="onSubmit()">
       <br>
       <br>
         <div id="form1">
@@ -9,50 +8,57 @@
         <br>
         <div class="row">
           <div class="col-md-6 form">
-              <label for="nombre">Imagen: </label>
-              <input id="nombre" type="text" formControlName="nombre" class="form-control" placeholder="Alberto">
+              <label for="imagen">Imagen: </label>
+              <input id="imagen" type="text" formControlName="imagen" class="form-control" placeholder="Ruta">
           </div>
           <div class="col-md-6 form">
-              <label for="apellido">Descripcion: </label>
-              <input id="apellido" type="text" formControlName="apellido" class="form-control" placeholder="Ramirez">  
+              <label for="tipo">Tipo: </label>
+              <input id="tipo" type="text" formControlName="tipo" class="form-control" placeholder="Spark">  
           </div>
         </div>  
         <br>
         <div class="row">
           <div class="col-md-6 form">
-            <label for="correo">Tipo: </label>
-            <input id="correo" type="text" formControlName="correo" class="form-control" placeholder="tu@ejemplo.com" aria-describedby="inputGroupPrepend">
+            <label for="marca" class="form-label">Marca: </label>
+            <select class="form-select" id="marca" type="text" formControlName="marca">
+              <option selected disabled value="">Selecciona.....</option>
+              <option>Renoul</option>
+              <option>Mazda</option>
+              <option>Chevrolet</option>
+              <option>Toyota</option>
+              <option>Ford</option>
+              <option>Honda</option>
+              <option>Dodge</option>
+            </select>
           </div>
           <div class="col-md-6 form">
-              <label for="celular">Modelo: </label>
-              <input id="celular" type="text" formControlName="celular" class="form-control" placeholder="3101234567">  
+            <label for="modelo" class="form-label">Modelo</label>
+            <select class="form-select" id="modelo" type="number" formControlName="modelo">
+              <option selected disabled value="">Selecciona.....</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+              <option>2021</option>
+            </select>
           </div>
         </div>
         <br>
         <div class="col-md-12 form">
-          <label for="rol" class="form-label">Disponibilidad</label>
-          <select class="form-select" id="rol" type="text" formControlName="rol">
-            <option selected disabled value="">Selecciona.....</option>
-            <option>Administrador</option>
-            <option>Asesor</option>
-            <option>Cliente</option>
-          </select>
+          <label for="des">Descrioción: </label>
+          <input id="des" type="text" formControlName="des" class="form-control" placeholder="">  
         </div>
-        <div class="col-md-6 form">
-            <label for="apellido">Valor: </label>
-            <input id="apellido" type="text" formControlName="apellido" class="form-control" placeholder="Ramirez">  
+        <div class="col-md-12 form">
+          <label for="valor">Valor: </label>
+          <input id="valor" type="number" formControlName="valor" class="form-control" placeholder=100000>  
         </div>
-        <br> -->
-        <!-- <div>
-            <button type="submit" [disabled]="!fbValitador.valid" class="w-100 btn-primary float-end btn-lg btn-success">Ingresar</button>
-        </div> -->
-        <!-- <div>
-            <button type="submit" class="w-100 btn-primary float-end btn-lg btn-success">Crear</button>
+        <br>
+        <div>
+            <button type="submit" [disabled]="!fbValitador.valid" class="w-100 btn-primary float-end btn-lg btn-success">Crear Vehiculo</button>
         </div>
         <p class="mt-5 mb-3 text-muted">&copy; Alquimotor–2021</p>
         <br>
         <br>
     </form>
-  </div> --> -->
+  </div>
 
 
