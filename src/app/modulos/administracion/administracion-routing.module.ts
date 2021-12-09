@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ValidadorSesionGuard } from 'src/app/guardianes/validador-sesion.guard';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario/editar-usuario.component';
 import { BuscarVehiculoComponent } from './vehiculos/buscar-vehiculo/buscar-vehiculo.component';
@@ -12,35 +13,42 @@ import { VerVehiculoComponent } from './vehiculos/ver-vehiculo/ver-vehiculo.comp
 const routes: Routes = [
   { 
     path: 'crear-usuario',
-    component: CrearUsuarioComponent
+    component: CrearUsuarioComponent,
   },
   { 
     path: 'editar-usuario',
-    component: EditarUsuarioComponent
+    component: EditarUsuarioComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   { 
     path: 'crear-vehiculo',
-    component: CrearVehiculoComponent
+    component: CrearVehiculoComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   { 
     path: 'eliminar-vehiculo/:id',
-    component: EliminarVehiculoComponent
+    component: EliminarVehiculoComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   { 
     path: 'editar-vehiculo/:id',
-    component: EditarVehiculoComponent
+    component: EditarVehiculoComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   { 
     path: 'buscar-vehiculo',
-    component: BuscarVehiculoComponent
+    component: BuscarVehiculoComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   { 
     path: 'ver-vehiculo/:id',
-    component: VerVehiculoComponent
+    component: VerVehiculoComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   { 
     path: 'cliente-vehiculo',
-    component: ClienteVehiculoComponent
+    component: ClienteVehiculoComponent,
+    canActivate: [ValidadorSesionGuard]
   }
 ];
 
