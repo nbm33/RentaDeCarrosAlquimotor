@@ -11,6 +11,8 @@ import { CrearVehiculoComponent } from './vehiculos/crear-vehiculo/crear-vehicul
 import { BuscarVehiculoComponent } from './vehiculos/buscar-vehiculo/buscar-vehiculo.component';
 import { EliminarVehiculoComponent } from './vehiculos/eliminar-vehiculo/eliminar-vehiculo.component';
 import { EditarVehiculoComponent } from './vehiculos/editar-vehiculo/editar-vehiculo.component';
+import { ClienteVehiculoComponent } from './vehiculos/cliente-vehiculo/cliente-vehiculo.component';
+import { VerVehiculoComponent } from './vehiculos/ver-vehiculo/ver-vehiculo.component';
 
 
 
@@ -23,7 +25,9 @@ import { EditarVehiculoComponent } from './vehiculos/editar-vehiculo/editar-vehi
     CrearVehiculoComponent,
     BuscarVehiculoComponent,
     EliminarVehiculoComponent,
-    EditarVehiculoComponent
+    EditarVehiculoComponent,
+    ClienteVehiculoComponent,
+    VerVehiculoComponent
   ],
   imports: [
     CommonModule,

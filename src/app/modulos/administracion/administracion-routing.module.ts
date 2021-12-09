@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario/editar-usuario.component';
 import { BuscarVehiculoComponent } from './vehiculos/buscar-vehiculo/buscar-vehiculo.component';
+import { ClienteVehiculoComponent } from './vehiculos/cliente-vehiculo/cliente-vehiculo.component';
 import { CrearVehiculoComponent } from './vehiculos/crear-vehiculo/crear-vehiculo.component';
 import { EditarVehiculoComponent } from './vehiculos/editar-vehiculo/editar-vehiculo.component';
 import { EliminarVehiculoComponent } from './vehiculos/eliminar-vehiculo/eliminar-vehiculo.component';
+import { VerVehiculoComponent } from './vehiculos/ver-vehiculo/ver-vehiculo.component';
 
 const routes: Routes = [
   { 
@@ -31,6 +33,14 @@ const routes: Routes = [
   { 
     path: 'buscar-vehiculo',
     component: BuscarVehiculoComponent
+  },
+  { 
+    path: 'ver-vehiculo/:id',
+    component: VerVehiculoComponent
+  },
+  { 
+    path: 'cliente-vehiculo',
+    component: ClienteVehiculoComponent
   }
 ];
 

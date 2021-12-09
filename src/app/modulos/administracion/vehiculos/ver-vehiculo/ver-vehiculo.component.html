@@ -1,0 +1,36 @@
+<div id="cabecera">
+    <br>
+    <h1>Detalle del Vehiculo</h1>
+    <br>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>Datos Tecnicos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ul><img src="{{Vehiculo.imagen}}" id="imagen"/></ul>
+                </td>
+                <td>
+                    <br>
+                    <br>
+                    <br>
+                    <li><strong>Tipo:</strong>{{Vehiculo.Tipo}}</li>
+                    <li><strong>Marca:</strong>{{Vehiculo.Marca}}</li>
+                    <li><strong>Modelo:</strong>{{Vehiculo.Modelo}}</li>
+                    <li><strong>Valor x día:</strong>${{Vehiculo.ValorDia | number}}</li>
+                    <li><strong>Punto Alquiler:</strong>{{Vehiculo.puntoAlquilerId}}</li>
+                    <li><strong>Disponibilidad:</strong>{{Vehiculo.puntoAlquilerId}}</li>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button (click)="Alquilar()" class="w-100 btn-primary float-end btn-lg btn-success">Alquilar Vehiculo</button>
+    </div>
+    <br>
+    <br>
+</div>
