@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { ModeloVehiculo } from 'src/app/modelos/vehicolo.modelo';
 import { VehiculosService } from 'src/app/servicios/vehiculos.service';
-import { ModeloVehiculo } from '../../../../modelos/vehicolo.modelo';
 
 @Component({
-  selector: 'app-buscar-vehiculo',
-  templateUrl: './buscar-vehiculo.component.html',
-  styleUrls: ['./buscar-vehiculo.component.css']
+  selector: 'app-cliente-vehiculo',
+  templateUrl: './cliente-vehiculo.component.html',
+  styleUrls: ['./cliente-vehiculo.component.css']
 })
-export class BuscarVehiculoComponent implements OnInit {
+export class ClienteVehiculoComponent implements OnInit {
 
   listadoVehiculos: ModeloVehiculo[] = [];
 

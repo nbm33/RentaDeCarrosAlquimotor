@@ -1,1 +1,38 @@
-<p>buscar-vehiculo works!</p>
+<br>
+<br>
+<div id="cabecera">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>Tipo</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Valor x Día</th>
+                <th>Punto de Alquiler</th>
+                <th>Disponibilidad</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let v of listadoVehiculos">
+                <td><img src="{{v.imagen}}" class="rounded-circle" id="imagen"/></td>
+                <td>{{v.Tipo}}</td>
+                <td>{{v.Marca}}</td>
+                <td>{{v.Modelo}}</td>
+                <td>${{v.ValorDia | number}}</td>
+                <td>{{v.puntoAlquilerId}}</td>
+                <td>{{v.Disponibilidad}}</td>
+                <td><a routerLink="/administracion/editar-vehiculo/{{v.id}}" class="btn btn-danger">Editar</a></td>
+                <td><a routerLink="/administracion/eliminar-vehiculo/{{v.id}}" class="btn btn-danger">Eliminar</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <a routerLink="//administracion/crear-vehiculo" class="btn btn-danger">Crear Nuevo Vehiculo</a>
+    </div>
+</div>
+<br>
+<br>
+  

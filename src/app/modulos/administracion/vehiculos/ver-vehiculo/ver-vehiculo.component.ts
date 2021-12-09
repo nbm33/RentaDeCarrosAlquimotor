@@ -4,12 +4,12 @@ import { ModeloVehiculo } from 'src/app/modelos/vehicolo.modelo';
 import { VehiculosService } from 'src/app/servicios/vehiculos.service';
 
 @Component({
-  selector: 'app-eliminar-vehiculo',
-  templateUrl: './eliminar-vehiculo.component.html',
-  styleUrls: ['./eliminar-vehiculo.component.css']
+  selector: 'app-ver-vehiculo',
+  templateUrl: './ver-vehiculo.component.html',
+  styleUrls: ['./ver-vehiculo.component.css']
 })
-export class EliminarVehiculoComponent implements OnInit {
-
+export class VerVehiculoComponent implements OnInit {
+  
   id: string= "";
   Vehiculo: ModeloVehiculo = {};
 
@@ -26,13 +26,8 @@ export class EliminarVehiculoComponent implements OnInit {
     })
   }
 
-  Eliminar(){
-    this.vehiculoService.EliminarVehiculos(this.id).subscribe((datos: ModeloVehiculo) => {
-      alert("Alquimotor: Vehiculo eliminado correctamente");
-      this.router.navigate(["/administracion/buscar-vehiculo"])
-    }, (error:any) => {
-      alert("Alquimotor: No se puede eliminar")
-    }
-    )
+  Alquilar(){
+ 
   }
+
 }

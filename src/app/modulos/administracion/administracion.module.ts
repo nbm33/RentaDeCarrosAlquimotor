@@ -15,6 +15,8 @@ import { CrearSolicitudComponent } from './solicitud/crear-solicitud/crear-solic
 import { BuscarSolicitudComponent } from './solicitud/buscar-solicitud/buscar-solicitud.component';
 import { EditarSolicitudComponent } from './solicitud/editar-solicitud/editar-solicitud.component';
 import { EliminarSolicitudComponent } from './solicitud/eliminar-solicitud/eliminar-solicitud.component';
+import { VerVehiculoComponent } from './vehiculos/ver-vehiculo/ver-vehiculo.component';
+import { ClienteVehiculoComponent } from './vehiculos/cliente-vehiculo/cliente-vehiculo.component';
 
 
 
@@ -28,6 +30,8 @@ import { EliminarSolicitudComponent } from './solicitud/eliminar-solicitud/elimi
     BuscarVehiculoComponent,
     EliminarVehiculoComponent,
     EditarVehiculoComponent,
+    VerVehiculoComponent,
+    ClienteVehiculoComponent,    
     CrearSolicitudComponent,
     BuscarSolicitudComponent,
     EditarSolicitudComponent,
