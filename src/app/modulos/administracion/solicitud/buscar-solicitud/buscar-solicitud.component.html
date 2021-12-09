@@ -1,0 +1,39 @@
+<div class="container">
+    <br>
+    <br>
+    <img class="mb-4" src="assets/img/imagen4.jpg" alt="">
+    <h1 class="h3 mb-3 fw-normal">Mis Reservas</h1>
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th>Vehiculo</th>
+                <th>Punto Alquiler</th>
+                <th>Fecha Recogida</th>
+                <th>Fecha Entrega</th>
+                <th>Valor Total</th>
+                <th>Fecha Solicitud</th>
+                <th>Estado</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngfor="let s of listadoRegistros">
+                <td>{{s.vehiculosId}}</td>
+                <td>{{s.puntoAlquilerId}}</td>
+                <td>{{s.FechaRecogida}}</td>
+                <td>{{s.FechaEntrega}}</td>
+                <td>{{s.FechaSolicitud}}</td>
+                <td>{{s.ValorTotal}}</td>
+                <td>{{s.Estado}}</td>
+                <td><button class="btn btn-success my-2" type="submit">Declinar</button></td>
+                <td><button class="btn btn-success my-2" type="submit" routerLink="/administracion/editar-solicitud/{{s.id}}">Editar</button></td>
+            </tr>
+                    
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <button class="w-100 btn btn-lg btn-success" type="submit" routerLink="/administracion/crear-solicitud">Nueva Solicitud</button>
+</div>
+

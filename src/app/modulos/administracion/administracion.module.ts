@@ -11,6 +11,10 @@ import { CrearVehiculoComponent } from './vehiculos/crear-vehiculo/crear-vehicul
 import { BuscarVehiculoComponent } from './vehiculos/buscar-vehiculo/buscar-vehiculo.component';
 import { EliminarVehiculoComponent } from './vehiculos/eliminar-vehiculo/eliminar-vehiculo.component';
 import { EditarVehiculoComponent } from './vehiculos/editar-vehiculo/editar-vehiculo.component';
+import { CrearSolicitudComponent } from './solicitud/crear-solicitud/crear-solicitud.component';
+import { BuscarSolicitudComponent } from './solicitud/buscar-solicitud/buscar-solicitud.component';
+import { EditarSolicitudComponent } from './solicitud/editar-solicitud/editar-solicitud.component';
+import { EliminarSolicitudComponent } from './solicitud/eliminar-solicitud/eliminar-solicitud.component';
 
 
 
@@ -23,7 +27,11 @@ import { EditarVehiculoComponent } from './vehiculos/editar-vehiculo/editar-vehi
     CrearVehiculoComponent,
     BuscarVehiculoComponent,
     EliminarVehiculoComponent,
-    EditarVehiculoComponent
+    EditarVehiculoComponent,
+    CrearSolicitudComponent,
+    BuscarSolicitudComponent,
+    EditarSolicitudComponent,
+    EliminarSolicitudComponent
   ],
   imports: [
     CommonModule,

@@ -8,6 +8,8 @@ import { CrearUsuarioComponent } from './modulos/administracion/usuario/crear-us
 import { RecuperarClaveComponent } from './modulos/seguridad/recuperar-clave/recuperar-clave.component';
 import { VehiculosComponent } from './plantilla/vehiculos/vehiculos.component';
 import { ContactoComponent } from './plantilla/contacto/contacto.component';
+import { BuscarSolicitudComponent } from './modulos/administracion/solicitud/buscar-solicitud/buscar-solicitud.component';
+
 
 const routes: Routes = [
   {
@@ -22,6 +24,10 @@ const routes: Routes = [
   {
     path:"vehiculo",
     component: VehiculosComponent
+  },
+  {
+    path:"solicitud",
+    component: BuscarSolicitudComponent
   },
   {
     path:"contacto",
