@@ -15,13 +15,14 @@ import {
 import {Vehiculos} from '../models';
 import {VehiculosRepository} from '../repositories';
 
+@authenticate("admin")
 export class VehiculosController {
   constructor(
     @repository(VehiculosRepository)
     public vehiculosRepository : VehiculosRepository,
   ) {}
 
-  @authenticate("admin")
+  @authenticate.skip()
   @post('/vehiculos')
   @response(200, {
     description: 'Vehiculos model instance',
@@ -128,6 +129,7 @@ export class VehiculosController {
     await this.vehiculosRepository.updateById(id, vehiculos);
   }
 
+  @authenticate.skip()
   @put('/vehiculos/{id}')
   @response(204, {
     description: 'Vehiculos PUT success',
@@ -139,6 +141,7 @@ export class VehiculosController {
     await this.vehiculosRepository.replaceById(id, vehiculos);
   }
 
+  @authenticate.skip()
   @del('/vehiculos/{id}')
   @response(204, {
     description: 'Vehiculos DELETE success',
