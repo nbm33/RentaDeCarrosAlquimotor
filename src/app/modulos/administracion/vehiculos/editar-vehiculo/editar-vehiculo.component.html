@@ -1,1 +1,63 @@
-<p>editar-vehiculo works!</p>
+<div class="abs-center">
+    <form [formGroup]="fbValitador" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id">
+      <br>
+      <br>
+        <div id="form1">
+            <h3 class="h2 mb-3 fw-normal">Editar los campos que requieran cambio:</h3>
+        </div>  
+        <br>
+        <div class="row">
+          <div class="col-md-6 form">
+              <label for="imagen">Imagen: </label>
+              <input id="imagen" type="text" formControlName="imagen" class="form-control" placeholder="Ruta">
+          </div>
+          <div class="col-md-6 form">
+              <label for="tipo">Tipo: </label>
+              <input id="tipo" type="text" formControlName="tipo" class="form-control" placeholder="Spark">  
+          </div>
+        </div>  
+        <br>
+        <div class="row">
+          <div class="col-md-6 form">
+            <label for="marca" class="form-label">Marca: </label>
+            <select class="form-select" id="marca" type="text" formControlName="marca">
+              <option selected disabled value="">Selecciona.....</option>
+              <option>Renault</option>
+              <option>Mazda</option>
+              <option>Chevrolet</option>
+              <option>Toyota</option>
+              <option>Ford</option>
+              <option>Honda</option>
+              <option>Dodge</option>
+            </select>
+          </div>
+          <div class="col-md-6 form">
+            <label for="modelo" class="form-label">Modelo</label>
+            <select class="form-select" id="modelo" type="number" formControlName="modelo">
+              <option selected disabled value="">Selecciona.....</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+              <option>2021</option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <div class="col-md-12 form">
+          <label for="des">Descrioción: </label>
+          <input id="des" type="text" formControlName="des" class="form-control" placeholder="">  
+        </div>
+        <div class="col-md-12 form">
+          <label for="valor">Valor: </label>
+          <input id="valor" type="number" formControlName="valor" class="form-control" placeholder=100000>  
+        </div>
+        <br>
+        <div>
+            <button type="submit" [disabled]="!fbValitador.valid" class="w-100 btn-primary float-end btn-lg btn-success">Editar Vehiculo</button>
+        </div>
+        <p class="mt-5 mb-3 text-muted">&copy; Alquimotor–2021</p>
+        <br>
+        <br>
+    </form>
+  </div>
