@@ -13,6 +13,10 @@ import { EliminarVehiculoComponent } from './vehiculos/eliminar-vehiculo/elimina
 import { EditarVehiculoComponent } from './vehiculos/editar-vehiculo/editar-vehiculo.component';
 import { ClienteVehiculoComponent } from './vehiculos/cliente-vehiculo/cliente-vehiculo.component';
 import { VerVehiculoComponent } from './vehiculos/ver-vehiculo/ver-vehiculo.component';
+import { CrearPuntoComponent } from './puntoAlquiler/crear-punto/crear-punto.component';
+import { EditarPuntoComponent } from './puntoAlquiler/editar-punto/editar-punto.component';
+import { EliminarPuntoComponent } from './puntoAlquiler/eliminar-punto/eliminar-punto.component';
+import { BuscarPuntoComponent } from './puntoAlquiler/buscar-punto/buscar-punto.component';
 
 
 
@@ -27,7 +31,11 @@ import { VerVehiculoComponent } from './vehiculos/ver-vehiculo/ver-vehiculo.comp
     EliminarVehiculoComponent,
     EditarVehiculoComponent,
     ClienteVehiculoComponent,
-    VerVehiculoComponent
+    VerVehiculoComponent,
+    CrearPuntoComponent,
+    EditarPuntoComponent,
+    EliminarPuntoComponent,
+    BuscarPuntoComponent
   ],
   imports: [
     CommonModule,

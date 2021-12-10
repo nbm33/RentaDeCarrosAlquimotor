@@ -1,0 +1,21 @@
+<div id="cabecera">
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>Punto para eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <li><strong>Departamento:  </strong>{{Punto.Departamento}}</li>
+                <li><strong>Ciudad:  </strong>{{Punto.Ciudad}}</li>
+                <li><strong>Dirección:  </strong>{{Punto.Direccion}}</li>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button (click)="Eliminar()" class="w-100 btn-primary float-end btn-lg btn-danger">Eliminar Punto</button>
+    </div>
+    <br>
+    <br>
+</div>
