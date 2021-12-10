@@ -13,6 +13,10 @@ import { CrearVehiculoComponent } from './vehiculos/crear-vehiculo/crear-vehicul
 import { EditarVehiculoComponent } from './vehiculos/editar-vehiculo/editar-vehiculo.component';
 import { EliminarVehiculoComponent } from './vehiculos/eliminar-vehiculo/eliminar-vehiculo.component';
 import { VerVehiculoComponent } from './vehiculos/ver-vehiculo/ver-vehiculo.component';
+import { EditarPuntoComponent } from './puntoAlquiler/editar-punto/editar-punto.component';
+import { EliminarPuntoComponent } from './puntoAlquiler/eliminar-punto/eliminar-punto.component';
+import { CrearPuntoComponent } from './puntoAlquiler/crear-punto/crear-punto.component';
+import { BuscarPuntoComponent } from './puntoAlquiler/buscar-punto/buscar-punto.component';
 
 const routes: Routes = [
   { 
@@ -64,6 +68,31 @@ const routes: Routes = [
     path: 'eliminar-solicitud/:id',
     component: EliminarSolicitudComponent
   },
+  {
+    path: 'cliente-vehiculo',
+    component: ClienteVehiculoComponent,
+    canActivate: [ValidadorSesionGuard]
+  },
+  { 
+    path: 'editar-punto/:id',
+    component: EditarPuntoComponent,
+    canActivate: [ValidadorSesionGuard]
+  },
+  { 
+    path: 'eliminar-punto/:id',
+    component: EliminarPuntoComponent,
+    canActivate: [ValidadorSesionGuard]
+  },
+  { 
+    path: 'crear-punto',
+    component: CrearPuntoComponent,
+    canActivate: [ValidadorSesionGuard]
+  },
+  { 
+    path: 'buscar-punto',
+    component: BuscarPuntoComponent,
+    canActivate: [ValidadorSesionGuard]
+  }
 ];
 
 @NgModule({

@@ -7,6 +7,7 @@ import { ModeloVehiculo } from '../../../../modelos/vehicolo.modelo';
   templateUrl: './buscar-vehiculo.component.html',
   styleUrls: ['./buscar-vehiculo.component.css']
 })
+
 export class BuscarVehiculoComponent implements OnInit {
 
   listadoVehiculos: ModeloVehiculo[] = [];

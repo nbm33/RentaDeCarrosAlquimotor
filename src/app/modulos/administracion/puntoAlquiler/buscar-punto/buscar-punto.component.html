@@ -1,0 +1,29 @@
+<br>
+<br>
+<div id="cabecera">
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>Departamento</th>
+                <th>Ciudad</th>
+                <th>Dirección</th>
+                <th>Ajustes</th>
+                <th>Ajustes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of listadoPuntos">
+                <td>{{p.Departamento}}</td>
+                <td>{{p.Ciudad}}</td>
+                <td>{{p.Direccion}}</td>
+                <td><a routerLink="/administracion/editar-punto/{{p.id}}" class="btn btn-secondary">Editar</a></td>
+                <td><a routerLink="/administracion/eliminar-punto/{{p.id}}" class="btn btn-secondary">Eliminar</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <a routerLink="//administracion/crear-punto" class="btn btn-danger">Crear Nuevo Punto Alquiler</a>
+    </div>
+</div>
+<br>
+<br>

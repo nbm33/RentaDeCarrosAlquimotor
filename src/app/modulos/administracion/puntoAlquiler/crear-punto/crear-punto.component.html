@@ -1,0 +1,37 @@
+<div class="abs-center">
+    <form [formGroup]="fbValitador" (ngSubmit)="onSubmit()">
+      <br>
+      <br>
+        <div id="form1">
+            <h3 class="h2 mb-3 fw-normal text-danger">Por favor ingrese nuevo punto de alquiler:</h3>
+        </div>  
+        <br>
+        <div class="row">
+          <div class="col-md-12 form">
+              <label for="departamento">Departamento: </label>
+              <input id="departamento" type="text" formControlName="departamento" class="form-control" placeholder="Ingreso...">
+          </div>
+        </div>  
+        <br>
+        <div class="row">
+            <div class="col-md-12 form">
+                <label for="ciudad">Ciudad: </label>
+                <input id="ciudad" type="text" formControlName="ciudad" class="form-control" placeholder="Ingreso...">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12 form">
+                <label for="direccion">Dirección: </label>
+                <input id="direccion" type="text" formControlName="direccion" class="form-control" placeholder="Ingreso...">
+            </div>
+        </div>
+        <br>
+        <div>
+            <button type="submit" [disabled]="!fbValitador.valid" class="w-100 btn-primary float-end btn-lg btn-dark">Crear Punto Alquiler</button>
+        </div>
+        <p class="mt-5 mb-3 text-muted">&copy; Alquimotor–2021</p>
+        <br>
+        <br>
+    </form>
+  </div>

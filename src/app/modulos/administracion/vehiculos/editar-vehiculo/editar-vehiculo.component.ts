@@ -1,7 +1,9 @@
 import { Component, OnInit} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ModeloPuntoAlquiler } from 'src/app/modelos/puntoAlquiler.modelo';
 import { ModeloVehiculo } from 'src/app/modelos/vehicolo.modelo';
+import { PuntoAlquilerService } from 'src/app/servicios/punto-alquiler.service';
 import { VehiculosService } from 'src/app/servicios/vehiculos.service';
 
 @Component({
@@ -12,6 +14,7 @@ import { VehiculosService } from 'src/app/servicios/vehiculos.service';
 export class EditarVehiculoComponent implements OnInit{
 
   id: string= "";
+  listadoPuntos: ModeloPuntoAlquiler[] = [];
 
   fbValitador = this.fb.group({
     id: ['', [Validators.required]],
@@ -21,13 +24,21 @@ export class EditarVehiculoComponent implements OnInit{
     modelo: ['', [Validators.required]],
     des: ['', [Validators.required]],
     valor: ['', [Validators.required]],
+    punto: [''],
   });
 
-  constructor(private fb: FormBuilder, private vehiculoService: VehiculosService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private fb: FormBuilder, private vehiculoService: VehiculosService, private puntoService: PuntoAlquilerService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+    this.ObtenerListaPuntos();
     this.BuscarVehiculo();
+  }
+
+  ObtenerListaPuntos(){
+    this.puntoService.ObtenerPuntos().subscribe((datos: ModeloPuntoAlquiler[]) => {
+      this.listadoPuntos = datos;
+    })
   }
 
   BuscarVehiculo(){
@@ -39,6 +50,7 @@ export class EditarVehiculoComponent implements OnInit{
       this.fbValitador.controls["modelo"].setValue(datos.Modelo);
       this.fbValitador.controls["des"].setValue(datos.Descripcion);
       this.fbValitador.controls["valor"].setValue(datos.ValorDia);
+      this.fbValitador.controls["punto"].setValue(datos.puntoAlquilerId);
     })
   }
 
@@ -50,6 +62,7 @@ export class EditarVehiculoComponent implements OnInit{
     let modelo =  parseInt(this.fbValitador.controls['modelo'].value);
     let des =  this.fbValitador.controls['des'].value;
     let valor =  parseInt(this.fbValitador.controls['valor'].value);
+    let punto =  this.fbValitador.controls['punto'].value;
     let v = new ModeloVehiculo();
     v.id = this.id;
     v.imagen = imagen;
@@ -61,7 +74,7 @@ export class EditarVehiculoComponent implements OnInit{
     v.Disponibilidad = true;
     v.administradorId = "";
     v.asesoresId = "";
-    v.puntoAlquilerId = "";
+    v.puntoAlquilerId = punto;
 
     this.vehiculoService.ActualizarVehiculos(v).subscribe((datos: ModeloVehiculo) => {
       alert("Alquimotor: Vehiculo actualizado correctamente");

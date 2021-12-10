@@ -2,7 +2,7 @@
 <br>
 <div id="cabecera">
     <br>
-    <h1>Vahiculos disponibles para Reservar:</h1>
+    <h1>Vahiculos para Reservar:</h1>
     <br>
     <table class="table table-hover">
         <thead>
@@ -11,6 +11,8 @@
                 <th>Tipo</th>
                 <th>Marca</th>
                 <th>Modelo</th>
+                <th>Punto Alquiler</th>
+                <th>Disponibilidad</th>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +21,8 @@
                 <td>{{v.Tipo}}</td>
                 <td>{{v.Marca}}</td>
                 <td>{{v.Modelo}}</td>
+                <td>{{v.puntoAlquilerId}}</td>
+                <td><strong>{{v.Disponibilidad && 'Disponible' || '¡ Reservado !'}}</strong></td>
                 <td><a routerLink="/administracion/ver-vehiculo/{{v.id}}" class="btn btn-danger">Ver Detalles</a></td>
             </tr>
         </tbody>
