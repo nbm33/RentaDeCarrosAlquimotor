@@ -23,7 +23,7 @@
                 <td>{{v.Modelo}}</td>
                 <td>${{v.ValorDia | number}}</td>
                 <td>{{v.puntoAlquilerId}}</td>
-                <td>{{v.Disponibilidad}}</td>
+                <td>{{v.Disponibilidad && 'Disponible' || '¡Reservado!'}}</td>
                 <td><a routerLink="/administracion/editar-vehiculo/{{v.id}}" class="btn btn-danger">Editar</a></td>
                 <td><a routerLink="/administracion/eliminar-vehiculo/{{v.id}}" class="btn btn-danger">Eliminar</a></td>
             </tr>

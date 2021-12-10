@@ -18,19 +18,22 @@
                     <br>
                     <br>
                     <br>
-                    <li><strong>Tipo:</strong>{{Vehiculo.Tipo}}</li>
-                    <li><strong>Marca:</strong>{{Vehiculo.Marca}}</li>
-                    <li><strong>Modelo:</strong>{{Vehiculo.Modelo}}</li>
-                    <li><strong>Valor x día:</strong>${{Vehiculo.ValorDia | number}}</li>
-                    <li><strong>Punto Alquiler:</strong>{{Vehiculo.puntoAlquilerId}}</li>
-                    <li><strong>Disponibilidad:</strong>{{Vehiculo.puntoAlquilerId}}</li>
+                    <li><strong>Tipo:   </strong>{{Vehiculo.Tipo}}</li>
+                    <li><strong>Marca:   </strong>{{Vehiculo.Marca}}</li>
+                    <li><strong>Modelo:   </strong>{{Vehiculo.Modelo}}</li>
+                    <li><strong>Valor x día:   </strong>${{Vehiculo.ValorDia | number}}</li>
+                    <li><strong>Punto Alquiler:   </strong>{{Vehiculo.puntoAlquilerId}}</li>
+                    <li><strong>Descripción:   </strong>{{Vehiculo.Descripcion}}</li>
+                    <li><strong>Disponibilidad:   </strong>{{Vehiculo.Disponibilidad && 'Disponible' || '¡Reservado!'}}</li>
+                    <br>
+                    <br>
+                    <ul>
+                        <button (click)="Alquilar()" class="w-100 btn-primary float-end btn-lg btn-danger">Alquilar Vehiculo</button>
+                    </ul>
                 </td>
             </tr>
         </tbody>
     </table>
-    <div>
-        <button (click)="Alquilar()" class="w-100 btn-primary float-end btn-lg btn-success">Alquilar Vehiculo</button>
-    </div>
     <br>
     <br>
 </div>

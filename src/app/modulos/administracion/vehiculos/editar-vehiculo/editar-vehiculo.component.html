@@ -48,9 +48,17 @@
           <label for="des">Descrioción: </label>
           <input id="des" type="text" formControlName="des" class="form-control" placeholder="">  
         </div>
+        <br>
         <div class="col-md-12 form">
           <label for="valor">Valor: </label>
           <input id="valor" type="number" formControlName="valor" class="form-control" placeholder=100000>  
+        </div>
+        <br>
+        <div class="col-md-12 form">
+          <label for="punto" class="form-label">Punto de Alquiler: </label>
+          <select id="punto" class="form-select" formControlName="punto" type="text" >
+            <option *ngFor="let obj of listadoPuntos" >{{obj.Ciudad}}</option>
+          </select> 
         </div>
         <br>
         <div>
