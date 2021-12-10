@@ -4,10 +4,7 @@
     <img class="mb-4" src="assets/img/imagen4.jpg" alt="">
     <h1 class="h3 mb-3 fw-normal">Solicitud de vehiculo</h1>
     <form [formGroup]="fgValidador" (ngSubmit)="GuardarSolicitud()" method="post" class="row g-3 needs-validation" novalidate>
-        <input formControlName="clienteId" type="hidden" class="form-control" id="clienteId" value="">
-        <input formControlName="vehiculosId" type="hidden" class="form-control" id="vehiculosId" value="">
-        <input formControlName="puntoAlquilerId" type="hidden" class="form-control" id="puntoAlquilerId" value="">
-
+        
         <table class="table">            
             <tbody>
               <tr>
@@ -16,35 +13,34 @@
               </tr>
               <tr>
                 <th scope="row">Vehiculo</th>
-                <td>Mazda CX30
-                    <br>Modelo 2021
-                    <br>10.000 km
-                    <br>Motor 2.0 turbo 
-                    <br>4 puertas
-                    <br>Color gris plateado</td>                
+                <td>
+                    <label >{{Vehiculo.Marca}} 
+                        <br>{{Vehiculo.Tipo}} 
+                        <br>{{Vehiculo.Modelo}}
+                    </label>
+                </td>                
               </tr>
               <tr>
                 <th scope="row">Punto Alquiler</th>
-                <td>Calle 5 # 13 - 00 
-                    <br>(Cali, Valle)</td>               
+                <td>
+                    <label formControlName="puntoAlquilerId">{{Vehiculo.puntoAlquilerId}} </label>
+                </td>               
               </tr>
             </tbody>
         </table>             
       
         <div class="container px-1 px-sm-5 mx-auto">                                      
-            <label class="ml-3 form-control-placeholder">Tiempo de reserva:</label> 
+            <b><label class="ml-3 form-control-placeholder">Tiempo de reserva:</label></b>
             <br>
-            <div class="row">
-                <div class="input-group input-daterange">
-                    <div class="col-md-6 form">
-                        <label class="ml-3 form-control-placeholder" for="FechaRecogida">Fecha Inicio: </label> 
-                        <input formControlName="FechaRecogida" type="text" name="FechaRecogida" class="form-control text-left mr-2">
-                    </div>
-                    <div class="col-md-6 form">
-                        <label class="ml-3 form-control-placeholder" for="FechaEntrega">Fecha Fin: </label> 
-                        <input formControlName="FechaEntrega" type="text" name="FechaEntrega" class="form-control text-left ml-2"> 
-                    </div>
+            <div class="row">                
+                <div class="col-md-6 form">
+                    <label class="ml-3 form-control-placeholder" for="FechaRecogida">Fecha Inicio: </label> 
+                    <input formControlName="FechaRecogida" type="date" datetime="yyyy-MM-dd" ng-model="myDate" name="FechaRecogida" class="form-control text-left mr-2">
                 </div>
+                <div class="col-md-6 form">
+                    <label class="ml-3 form-control-placeholder" for="FechaEntrega">Fecha Fin: </label> 
+                    <input formControlName="FechaEntrega" type="date" datetime="yyyy-MM-dd" ng-model="myDate" name="FechaEntrega" class="form-control text-left ml-2"> 
+                </div>               
             </div>  
             <br>
         </div>                                                

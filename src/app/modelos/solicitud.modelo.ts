@@ -2,7 +2,7 @@ export class ModeloSolicitud{
     id?:string;
     FechaRecogida?:string;
     FechaEntrega?:string;
-    Estado?:string;
+    Estado?:[string];
     FechaSolicitud?:string;
     ValorTotal?:number;
     clienteId?: string;

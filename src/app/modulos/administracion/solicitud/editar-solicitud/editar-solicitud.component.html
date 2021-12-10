@@ -2,57 +2,55 @@
     <br>
     <br>
     <img class="mb-4" src="assets/img/imagen4.jpg" alt="">
-    <h1 class="h3 mb-3 fw-normal">Solicitud de vehiculo</h1>
-    <form [formGroup]="fgValidador" (ngSubmit)="EditarSolicitud()" method="post" class="row g-3 needs-validation" novalidate>
-        <input formControlName="id" type="hidden" class="form-control" id="id" value="">
-        <input formControlName="clienteId" type="hidden" class="form-control" id="clienteId" value="">
-        <input formControlName="vehiculosId" type="hidden" class="form-control" id="vehiculosId" value="">
-        <input formControlName="puntoAlquilerId" type="hidden" class="form-control" id="puntoAlquilerId" value="">
+    <h1 class="h3 mb-3 fw-normal">Modificar Fechas en Solicitud</h1>
+    <form [formGroup]="fgValidador" (ngSubmit)="GuardarSolicitud()" method="post" class="row g-3 needs-validation" novalidate>
+        <input type="hidden" formControlName="id">
+        <input type="hidden" formControlName="FechaSolicitud">
 
         <table class="table">            
             <tbody>
               <tr>
                 <th scope="row">Nombre Cliente</th>
-                <td>Pepito Perez</td>                
+                <td><label formControlName="clienteId"></label></td>                
               </tr>
               <tr>
                 <th scope="row">Vehiculo</th>
-                <td>Mazda CX30
-                    <br>Modelo 2021
-                    <br>10.000 km
-                    <br>Motor 2.0 turbo 
-                    <br>4 puertas
-                    <br>Color gris plateado</td>                
+                <td>
+                    <label formControlName="vehiculosId"></label>
+                </td>                
               </tr>
               <tr>
                 <th scope="row">Punto Alquiler</th>
-                <td>Calle 5 # 13 - 00 
-                    <br>(Cali, Valle)</td>               
+                <td>
+                    <label formControlName="puntoAlquilerId"> </label>
+                </td>               
+              </tr>
+              <tr>
+                <th scope="row">Estado de la solicitud</th>
+                <input type="text" formControlName="Estado" class="form-control" >  
               </tr>
             </tbody>
         </table>             
       
         <div class="container px-1 px-sm-5 mx-auto">                                      
-            <label class="ml-3 form-control-placeholder">Tiempo de reserva:</label> 
+            <b><label class="ml-3 form-control-placeholder">Tiempo de reserva:</label></b>
             <br>
-            <div class="row">
-                <div class="input-group input-daterange">
-                    <div class="col-md-6 form">
-                        <label class="ml-3 form-control-placeholder" for="FechaRecogida">Fecha Inicio: </label> 
-                        <input formControlName="FechaRecogida" type="text" name="FechaRecogida" class="form-control text-left mr-2">
-                    </div>
-                    <div class="col-md-6 form">
-                        <label class="ml-3 form-control-placeholder" for="FechaEntrega">Fecha Fin: </label> 
-                        <input formControlName="FechaEntrega" type="text" name="FechaEntrega" class="form-control text-left ml-2"> 
-                    </div>
+            <div class="row">                
+                <div class="col-md-6 form">
+                    <label class="ml-3 form-control-placeholder" for="FechaRecogida">Fecha Inicio: </label> 
+                    <input formControlName="FechaRecogida" type="date" datetime="yyyy-MM-dd" ng-model="myDate" name="FechaRecogida" class="form-control text-left mr-2">
                 </div>
+                <div class="col-md-6 form">
+                    <label class="ml-3 form-control-placeholder" for="FechaEntrega">Fecha Fin: </label> 
+                    <input formControlName="FechaEntrega" type="date" datetime="yyyy-MM-dd" ng-model="myDate" name="FechaEntrega" class="form-control text-left ml-2"> 
+                </div>               
             </div>  
             <br>
         </div>                                                
         <div class="col-6">
             <br>
             <br>
-            <button [disabled]="!fgValidador.valid" class="w-100 btn btn-lg btn-success" type="submit">Enviar Solicitud</button>
+            <button [disabled]="!fgValidador.valid" class="w-100 btn btn-lg btn-success" type="submit">Modificar Solicitud</button>
         </div>
     </form>
     <br>

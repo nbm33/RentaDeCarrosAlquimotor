@@ -18,22 +18,21 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngfor="let s of listadoRegistros">
+            <tr *ngFor="let s of listadoRegistros">
                 <td>{{s.vehiculosId}}</td>
                 <td>{{s.puntoAlquilerId}}</td>
                 <td>{{s.FechaRecogida}}</td>
                 <td>{{s.FechaEntrega}}</td>
-                <td>{{s.FechaSolicitud}}</td>
-                <td>{{s.ValorTotal}}</td>
+                <td>{{s.ValorTotal | number}}</td>
+                <td>{{s.FechaSolicitud}}</td>                
                 <td>{{s.Estado}}</td>
-                <td><button class="btn btn-success my-2" type="submit">Declinar</button></td>
-                <td><button class="btn btn-success my-2" type="submit" routerLink="/administracion/editar-solicitud/{{s.id}}">Editar</button></td>
-            </tr>
-                    
+                <td><a class="btn btn-danger" routerLink="/administracion/eliminar-solicitud/{{s.id}}">Declinar</a></td>
+                <td><a class="btn btn-danger" routerLink="/administracion/editar-solicitud/{{s.id}}">Editar</a></td>
+            </tr>                    
         </tbody>
     </table>
     <br>
     <br>
-    <button class="w-100 btn btn-lg btn-success" type="submit" routerLink="/administracion/crear-solicitud">Nueva Solicitud</button>
+    <button class="w-100 btn btn-lg btn-success" type="submit" routerLink="/administracion/cliente-vehiculo">Nueva Solicitud</button>
 </div>
 

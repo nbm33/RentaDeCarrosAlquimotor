@@ -12,7 +12,7 @@
         <tbody>
             <tr>
                 <td>
-                    <ul><img src="{{Vehiculo.imagen}}" id="imagen"/></ul>
+                    <ul><img src="{{Vehiculo.imagen}}" id="imagen" width="550" height="350"/></ul>
                 </td>
                 <td>
                     <br>
@@ -29,7 +29,7 @@
         </tbody>
     </table>
     <div>
-        <button (click)="Alquilar()" class="w-100 btn-primary float-end btn-lg btn-success">Alquilar Vehiculo</button>
+        <button routerLink="/administracion/crear-solicitud/{{Vehiculo.id}}" class="w-100 btn-primary float-end btn-lg btn-success">Alquilar Vehiculo</button>
     </div>
     <br>
     <br>

@@ -4,6 +4,7 @@ import { ValidadorSesionGuard } from 'src/app/guardianes/validador-sesion.guard'
 import { BuscarSolicitudComponent } from './solicitud/buscar-solicitud/buscar-solicitud.component';
 import { CrearSolicitudComponent } from './solicitud/crear-solicitud/crear-solicitud.component';
 import { EditarSolicitudComponent } from './solicitud/editar-solicitud/editar-solicitud.component';
+import { EliminarSolicitudComponent } from './solicitud/eliminar-solicitud/eliminar-solicitud.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario/editar-usuario.component';
 import { BuscarVehiculoComponent } from './vehiculos/buscar-vehiculo/buscar-vehiculo.component';
@@ -48,7 +49,7 @@ const routes: Routes = [
     component: VerVehiculoComponent
   },
   { 
-    path: 'crear-solicitud',
+    path: 'crear-solicitud/:idVehiculo',
     component: CrearSolicitudComponent
   },
   { 
@@ -58,6 +59,10 @@ const routes: Routes = [
   { 
     path: 'editar-solicitud/:id',
     component: EditarSolicitudComponent
+  },
+  { 
+    path: 'eliminar-solicitud/:id',
+    component: EliminarSolicitudComponent
   },
 ];
 
