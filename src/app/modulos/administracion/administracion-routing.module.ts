@@ -17,6 +17,7 @@ import { EditarPuntoComponent } from './puntoAlquiler/editar-punto/editar-punto.
 import { EliminarPuntoComponent } from './puntoAlquiler/eliminar-punto/eliminar-punto.component';
 import { CrearPuntoComponent } from './puntoAlquiler/crear-punto/crear-punto.component';
 import { BuscarPuntoComponent } from './puntoAlquiler/buscar-punto/buscar-punto.component';
+import { AsesorSolicitudComponent } from './solicitud/asesor-solicitud/asesor-solicitud.component';
 
 const routes: Routes = [
   { 
@@ -89,6 +90,10 @@ const routes: Routes = [
     path: 'eliminar-solicitud/:id',
     component: EliminarSolicitudComponent
   },
+  { 
+    path: 'asesor-solicitud',
+    component: AsesorSolicitudComponent
+  }
 ];
 
 @NgModule({

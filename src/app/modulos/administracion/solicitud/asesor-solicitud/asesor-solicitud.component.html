@@ -2,7 +2,7 @@
     <br>
     <br>
     <img class="mb-4" src="assets/img/imagen4.jpg" alt="">
-    <h1 class="h3 mb-3 fw-normal">Mis Reservas</h1>
+    <h1 class="h3 mb-3 fw-normal">Reservas Asignadas</h1>
     <form name="form">
     <table class="table table-responsive table-striped">
         <thead>
@@ -14,8 +14,8 @@
                 <th>Valor Total</th>
                 <th>Fecha Solicitud</th>
                 <th>Estado</th>
-                <th></th>  
-                <th></th>               
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -27,18 +27,16 @@
                 <td>{{s.FechaEntrega}}</td>
                 <td>{{s.ValorTotal | number}}</td>
                 <td>{{s.FechaSolicitud}}</td>                
-                <td>{{s.Estado}}</td>  
-                <input type="hidden" id="estadoS" name="estadoS" value="{{s.Estado}}" #estadoS>              
-                <td *ngIf="estadoS.value == 'En estudio'"><a class="btn btn-secondary" (click)="Declinar(idS.value)">Declinar</a></td>
-                <td *ngIf="estadoS.value == 'En estudio'"><a class="btn btn-secondary" routerLink="/administracion/editar-solicitud/{{s.id}}">Editar</a></td>
-                <td *ngIf="estadoS.value == 'Aceptada'"><a class="btn btn-secondary" (click)="Pagar()">Pagar</a></td>
-                <td *ngIf="estadoS.value == 'Aceptada'"></td>
+                <td>{{s.Estado}}</td>
+                <input type="hidden" id="estadoS" name="estadoS" value="{{s.Estado}}" #estadoS> 
+                <td><a *ngIf="estadoS.value == 'En estudio'" class="btn btn-secondary" (click)="Aceptar(idS.value)">Aceptar</a></td>
+                <td><a *ngIf="estadoS.value == 'En estudio'" class="btn btn-secondary" (click)="Rechazar(idS.value)">Rechazar</a></td>
             </tr>                    
         </tbody>
     </table>
 </form>
     <br>
-    <br>
-    <button class="w-100 btn btn-lg btn-success" type="submit" routerLink="/administracion/cliente-vehiculo">Nueva Solicitud</button>
+    <br>   
 </div>
+
 

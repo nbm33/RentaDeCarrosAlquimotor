@@ -2,25 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModeloSolicitud } from 'src/app/modelos/solicitud.modelo';
 import { SolicitudService } from 'src/app/servicios/solicitud.service';
-import { VehiculosService } from 'src/app/servicios/vehiculos.service';
 
 @Component({
-  selector: 'app-buscar-solicitud',
-  templateUrl: './buscar-solicitud.component.html',
-  styleUrls: ['./buscar-solicitud.component.css']
+  selector: 'app-asesor-solicitud',
+  templateUrl: './asesor-solicitud.component.html',
+  styleUrls: ['./asesor-solicitud.component.css']
 })
-export class BuscarSolicitudComponent implements OnInit {
+export class AsesorSolicitudComponent implements OnInit {
 
   listadoRegistros: ModeloSolicitud[] = [];
   id='';
   solicitud: any='';
-
   constructor(private solicitudServicio : SolicitudService, private router: Router) {
     
    }
 
   ngOnInit(): void {
-    this.ObtenerListadoSolicitudes();    
+    this.ObtenerListadoSolicitudes();                         
   }
 
   BuscarSolicitud(){
@@ -35,23 +33,35 @@ export class BuscarSolicitudComponent implements OnInit {
     })
   }
 
-  Declinar(idS: string){
+  Aceptar(idS: string){
     this.id = idS;
     this.BuscarSolicitud();  
 
     let s = new ModeloSolicitud();
     s= this.solicitud;
-    s.Estado= ["Declinada"];
-       
+    s.Estado= ["Aceptada"];   
+    
     this.solicitudServicio.EditarSolicitud(s).subscribe((datos: ModeloSolicitud)=>{
-      alert("Solicitud eliminada exitosamente");
-      this.router.navigate(["/administracion/buscar-solicitud"]);
+      alert("Solicitud modificada exitosamente");
+      this.router.navigate(["/administracion/asesor-solicitud"]);
     }, (error: any) => {
-      alert("Error al eliminar la solicitud");
+      alert("Error al modificar la solicitud");
     });
   }
 
-  Pagar(){
+  Rechazar(idS: string){
+    this.id = idS;
+    this.BuscarSolicitud();  
+
+    let s = new ModeloSolicitud();
+    s= this.solicitud;    
+    s.Estado= ["Rechazada"];    
     
+    this.solicitudServicio.EditarSolicitud(s).subscribe((datos: ModeloSolicitud)=>{
+      alert("Solicitud modificada exitosamente");
+      this.router.navigate(["/administracion/asesor-solicitud"]);
+    }, (error: any) => {
+      alert("Error al modificar la solicitud");
+    });
   }
 }

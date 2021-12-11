@@ -24,6 +24,9 @@
           <li *ngIf="usuarioRol === 'Cliente'" class="nav-item">
             <a class="nav-link" href="/administracion/buscar-solicitud">Mis Reservas</a>
           </li>
+          <li *ngIf="usuarioRol === 'Asesor'" class="nav-item">
+            <a class="nav-link" href="/administracion/asesor-solicitud">Reservas Asignadas</a>
+          </li>
           <li *ngIf="usuarioRol === 'Administrador'" class="nav-item">
             <a class="nav-link" href="/administracion/buscar-vehiculo">Vehiculos</a>
           </li>

@@ -1,1 +1,36 @@
-<p>eliminar-solicitud works!</p>
+<div id="cabecera">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Solicitud a eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Id solicitud</th>
+                <td>{{solicitud.id}}</td>                
+              </tr>
+              <tr>
+                <th scope="row">Vehiculo</th>
+                <td>
+                    {{solicitud.vehiculosId}}                    
+                </td>                
+              </tr>
+              <tr>
+                <th scope="row">Punto Alquiler</th>
+                <td>
+                    {{solicitud.puntoAlquilerId}} 
+                </td>               
+              </tr>
+              <tr>
+                <th scope="row">Estado de la solicitud</th>
+                <td>{{solicitud.Estado}} </td>
+              </tr>
+        </tbody>
+    </table>
+    <div>
+        <button (click)="Eliminar()" class="w-100 btn-primary float-end btn-lg btn-success">Eliminar Solicitud</button>
+    </div>
+    <br>
+    <br>
+</div>
