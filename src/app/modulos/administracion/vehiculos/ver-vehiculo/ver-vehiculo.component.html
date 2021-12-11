@@ -28,15 +28,13 @@
                     <br>
                     <br>
                     <ul>
-                        <button (click)="Alquilar()" class="w-100 btn-primary float-end btn-lg btn-danger">Alquilar Vehiculo</button>
+                        <button routerLink="/administracion/crear-solicitud/{{Vehiculo.id}}" class="w-100 btn-primary float-end btn-lg btn-danger">Alquilar Vehiculo</button>
                     </ul>
                 </td>
             </tr>
         </tbody>
     </table>
-    <div>
-        <button routerLink="/administracion/crear-solicitud/{{Vehiculo.id}}" class="w-100 btn-primary float-end btn-lg btn-success">Alquilar Vehiculo</button>
-    </div>
+    
     <br>
     <br>
 </div>

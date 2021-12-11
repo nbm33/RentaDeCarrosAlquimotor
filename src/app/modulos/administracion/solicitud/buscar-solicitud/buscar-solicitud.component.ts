@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ModeloSolicitud } from 'src/app/modelos/solicitud.modelo';
 import { SolicitudService } from 'src/app/servicios/solicitud.service';
+import { VehiculosService } from 'src/app/servicios/vehiculos.service';
 
 @Component({
   selector: 'app-buscar-solicitud',
@@ -16,13 +18,12 @@ export class BuscarSolicitudComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.ObtenerListadoSolicitudes();
+    this.ObtenerListadoSolicitudes();    
   }
 
   ObtenerListadoSolicitudes(){
     this.solicitudServicio.ObtenerRegistros().subscribe((datos: ModeloSolicitud[]) => {
-      this.listadoRegistros = datos;
-      //alert("Solicitud creada exitosamente"+ this.listadoRegistros[0].id);
+      this.listadoRegistros = datos;      
     })
   }
 }

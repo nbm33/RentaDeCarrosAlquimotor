@@ -8,6 +8,7 @@ import { ModeloVehiculo } from 'src/app/modelos/vehicolo.modelo';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 import { SolicitudService } from 'src/app/servicios/solicitud.service';
 import { VehiculosService } from 'src/app/servicios/vehiculos.service';
+import { ModeloIdentificar } from 'src/app/modelos/identificar.modelo';
 
 @Component({
   selector: 'app-crear-solicitud',
@@ -18,8 +19,9 @@ import { VehiculosService } from 'src/app/servicios/vehiculos.service';
 export class CrearSolicitudComponent implements OnInit {
 
   idVehiculo = '';
-  Vehiculo: ModeloVehiculo = {};
-  cliente: ModeloDatos ={};
+  Vehiculo: any ={};
+  cliente: any ='';
+  fechaActual : any ='';
   fgValidador: FormGroup = this.fb.group({
     'FechaRecogida': ['',[Validators.required]],
     'FechaEntrega': ['',[Validators.required]]    
@@ -35,7 +37,7 @@ export class CrearSolicitudComponent implements OnInit {
     this.idVehiculo = this.route.snapshot.params['idVehiculo'];
     this.BuscarVehiculo();
     this.ObtenerDatosCliente();      
-     // this.fechaActual = this.datePipe.transform(new Date(), 'yyyy-MM-dd'); 
+    this.fechaActual = this.datePipe.transform(new Date(), 'yyyy-MM-dd')+"T00:00:00Z"; 
   }
 
   BuscarVehiculo(){
@@ -45,15 +47,18 @@ export class CrearSolicitudComponent implements OnInit {
   }
 
   ObtenerDatosCliente(){
-    this.sesionService.ObtenerInformacionSesion().subscribe((datosC: ModeloDatos) => {
-      this.cliente = datosC;
+    this.sesionService.ObtenerDatosSesion().subscribe((datosC: ModeloIdentificar) => {
+      this.cliente = datosC.datos;
     })
   }
 
   GuardarSolicitud(){
     let fechaRecogida = this.fgValidador.controls["FechaRecogida"].value+"T00:00:00Z";
-    let fechaEntrega = this.fgValidador.controls["FechaEntrega"].value+"T00:00:00Z";    
-    let valorTotal = 1;//parseInt()
+    let fechaEntrega = this.fgValidador.controls["FechaEntrega"].value+"T00:00:00Z"; 
+    let fechai = new Date(this.fgValidador.controls["FechaRecogida"].value).getTime();
+    let fechaf = new Date(this.fgValidador.controls["FechaEntrega"].value).getTime();
+    let dias = (fechaf - fechai)/(1000*60*60*24);  
+    let valorTotal: any =  dias* this.Vehiculo.ValorDia;
     let clienteId = this.cliente.id;//"61ae4baa457cae525c859618";
     let puntoAlquilerId = this.Vehiculo.puntoAlquilerId;
     let vehiculosId = this.Vehiculo.id;
@@ -62,7 +67,7 @@ export class CrearSolicitudComponent implements OnInit {
     s.FechaRecogida=fechaRecogida;
     s.FechaEntrega=fechaEntrega;
     s.Estado= ["En estudio"];
-    s.FechaSolicitud="2021-12-10"+"T00:00:00Z";
+    s.FechaSolicitud = this.fechaActual;
     s.ValorTotal=valorTotal;
     s.clienteId=clienteId;
     s.puntoAlquilerId=puntoAlquilerId;

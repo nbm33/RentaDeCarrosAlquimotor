@@ -3,31 +3,32 @@
     <br>
     <img class="mb-4" src="assets/img/imagen4.jpg" alt="">
     <h1 class="h3 mb-3 fw-normal">Modificar Fechas en Solicitud</h1>
-    <form [formGroup]="fgValidador" (ngSubmit)="GuardarSolicitud()" method="post" class="row g-3 needs-validation" novalidate>
-        <input type="hidden" formControlName="id">
-        <input type="hidden" formControlName="FechaSolicitud">
+    <form [formGroup]="fgValidador" (ngSubmit)="EditarSolicitud()" method="post" class="row g-3 needs-validation" novalidate>               
 
         <table class="table">            
             <tbody>
               <tr>
                 <th scope="row">Nombre Cliente</th>
-                <td><label formControlName="clienteId"></label></td>                
+                <td>{{cliente.correo}}</td>                
               </tr>
               <tr>
                 <th scope="row">Vehiculo</th>
                 <td>
-                    <label formControlName="vehiculosId"></label>
+                    {{solicitud.vehiculosId}}
+                    {{Vehiculo.Marca}} 
+                    <br>{{Vehiculo.Tipo}} 
+                    <br>{{Vehiculo.Modelo}}
                 </td>                
               </tr>
               <tr>
                 <th scope="row">Punto Alquiler</th>
                 <td>
-                    <label formControlName="puntoAlquilerId"> </label>
+                    {{solicitud.puntoAlquilerId}} 
                 </td>               
               </tr>
               <tr>
                 <th scope="row">Estado de la solicitud</th>
-                <input type="text" formControlName="Estado" class="form-control" >  
+                <td>{{solicitud.Estado}} </td>
               </tr>
             </tbody>
         </table>             
