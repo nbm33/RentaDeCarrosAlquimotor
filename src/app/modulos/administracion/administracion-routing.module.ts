@@ -73,6 +73,7 @@ const routes: Routes = [
     component: BuscarPuntoComponent,
     canActivate: [ValidadorSesionGuard]
   },
+  {
     path: 'crear-solicitud/:idVehiculo',
     component: CrearSolicitudComponent
   },
