@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BuscarAsesorComponent } from './asesores/buscar-asesor/buscar-asesor.component';
+import { CrearAsesorComponent } from './asesores/crear-asesor/crear-asesor.component';
+import { EditarAsesorComponent } from './asesores/editar-asesor/editar-asesor.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario/editar-usuario.component';
 import { BuscarVehiculoComponent } from './vehiculos/buscar-vehiculo/buscar-vehiculo.component';
@@ -17,6 +20,19 @@ const routes: Routes = [
   { 
     path: 'editar-usuario',
     component: EditarUsuarioComponent
+  },
+  
+  { 
+    path: 'crear-asesor',
+    component: CrearAsesorComponent
+  },
+  {
+    path: "listar-asesores",
+    component: BuscarAsesorComponent
+  },
+  { 
+    path: 'editar-asesor',
+    component: EditarAsesorComponent
   },
   { 
     path: 'crear-vehiculo',

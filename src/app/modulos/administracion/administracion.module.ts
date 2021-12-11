@@ -13,6 +13,10 @@ import { EliminarVehiculoComponent } from './vehiculos/eliminar-vehiculo/elimina
 import { EditarVehiculoComponent } from './vehiculos/editar-vehiculo/editar-vehiculo.component';
 import { ClienteVehiculoComponent } from './vehiculos/cliente-vehiculo/cliente-vehiculo.component';
 import { VerVehiculoComponent } from './vehiculos/ver-vehiculo/ver-vehiculo.component';
+import { CrearAsesorComponent } from './asesores/crear-asesor/crear-asesor.component';
+import { EditarAsesorComponent } from './asesores/editar-asesor/editar-asesor.component';
+import { EliminarAsesorComponent } from './asesores/eliminar-asesor/eliminar-asesor.component';
+import { BuscarAsesorComponent } from './asesores/buscar-asesor/buscar-asesor.component';
 
 
 
@@ -27,7 +31,11 @@ import { VerVehiculoComponent } from './vehiculos/ver-vehiculo/ver-vehiculo.comp
     EliminarVehiculoComponent,
     EditarVehiculoComponent,
     ClienteVehiculoComponent,
-    VerVehiculoComponent
+    VerVehiculoComponent,
+    CrearAsesorComponent,
+    EditarAsesorComponent,
+    EliminarAsesorComponent,
+    BuscarAsesorComponent
   ],
   imports: [
     CommonModule,
