@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ValidadorSesionGuard } from 'src/app/guardianes/validador-sesion.guard';
+import { BuscarSolicitudComponent } from './solicitud/buscar-solicitud/buscar-solicitud.component';
+import { CrearSolicitudComponent } from './solicitud/crear-solicitud/crear-solicitud.component';
+import { EditarSolicitudComponent } from './solicitud/editar-solicitud/editar-solicitud.component';
+import { EliminarSolicitudComponent } from './solicitud/eliminar-solicitud/eliminar-solicitud.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario/editar-usuario.component';
 import { BuscarVehiculoComponent } from './vehiculos/buscar-vehiculo/buscar-vehiculo.component';
@@ -26,28 +30,23 @@ const routes: Routes = [
   },
   { 
     path: 'crear-vehiculo',
-    component: CrearVehiculoComponent,
-    canActivate: [ValidadorSesionGuard]
-  },
-  { 
-    path: 'eliminar-vehiculo/:id',
-    component: EliminarVehiculoComponent,
-    canActivate: [ValidadorSesionGuard]
-  },
-  { 
-    path: 'editar-vehiculo/:id',
-    component: EditarVehiculoComponent,
-    canActivate: [ValidadorSesionGuard]
+    component: CrearVehiculoComponent
   },
   { 
     path: 'buscar-vehiculo',
-    component: BuscarVehiculoComponent,
-    canActivate: [ValidadorSesionGuard]
+    component: BuscarVehiculoComponent
   },
   { 
+    path: 'editar-vehiculo',
+    component: EditarVehiculoComponent
+  },
+  { 
+    path: 'eliminar-vehiculo',
+    component: EliminarVehiculoComponent
+  },  
+  { 
     path: 'ver-vehiculo/:id',
-    component: VerVehiculoComponent,
-    canActivate: [ValidadorSesionGuard]
+    component: VerVehiculoComponent
   },
   { 
     path: 'cliente-vehiculo',
@@ -73,7 +72,22 @@ const routes: Routes = [
     path: 'buscar-punto',
     component: BuscarPuntoComponent,
     canActivate: [ValidadorSesionGuard]
-  }
+  },
+    path: 'crear-solicitud/:idVehiculo',
+    component: CrearSolicitudComponent
+  },
+  { 
+    path: 'buscar-solicitud',
+    component: BuscarSolicitudComponent
+  },
+  { 
+    path: 'editar-solicitud/:id',
+    component: EditarSolicitudComponent
+  },
+  { 
+    path: 'eliminar-solicitud/:id',
+    component: EliminarSolicitudComponent
+  },
 ];
 
 @NgModule({
