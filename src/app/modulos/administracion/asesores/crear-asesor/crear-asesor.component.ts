@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModeloAsesor } from 'src/app/modelos/asesor.modelo';
+import { ModeloUsuario } from 'src/app/modelos/usuario.modelo';
 import { AsesorService } from 'src/app/servicios/asesor.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class CrearAsesorComponent implements OnInit {
     fgValitador: FormGroup = this.fb.group({
     nombre: ['',[Validators.required]],
     apellidos: ['',[Validators.required]],
-    Ceular: ['',[Validators.required]],
+    Celular: ['',[Validators.required]],
     correoElectronico: ['',[Validators.required]],
     
 
@@ -26,25 +27,25 @@ export class CrearAsesorComponent implements OnInit {
   ngOnInit(): void {
   }
   
-GuardarAsesor(){
-  console.log("llamando metodo");
-      let nombre = this.fgValitador.controls["nombre"].value;
-      console.log(nombre);
-      let apellidos = this.fgValitador.controls["apellido"].value;
-      let celular = this.fgValitador.controls["celular"].value;
-      let correoElectronico = this.fgValitador.controls["correo"].value;
-      let a = new ModeloAsesor();
-      a.Nombre = nombre;
-      a.Apellido = apellidos;
-      a.Celular =celular;
-      a.CorreoElectronico = correoElectronico;
-     
+  GuardarAsesor(){
+    console.log(this.fgValitador.value);
+    let nombre = this.fgValitador.controls["nombre"].value;
+    let apellidos = this.fgValitador.controls["apellidos"].value;
+    let Celular = this.fgValitador.controls["Celular"].value;
+    let correoElectronico = this.fgValitador.controls["correoElectronico"].value;
+    let a = new ModeloUsuario();
+    a.Nombre = nombre;
+    a.Apellido = apellidos;
+    a.Cedula =Celular;
+    a.CorreoElectronico = correoElectronico;
+    a.Rol= "asesor"
+      
 
-    this.servicioAsesor.CrearAsesor(a).subscribe((datos: ModeloAsesor) => {
+    this.servicioAsesor.CrearAsesor(a).subscribe((datos: ModeloUsuario) => {
       alert("Asesor creado correctamente");  
-this.router.navigate(["/administracion/listar-asesores"]);
-    },(error: any) => {
-      alert("error creando el asesor")
-    })
+      this.router.navigate(["/administracion/listar-asesores"])
+      },(error: any) => {
+        alert("error creando el asesor")
+      })
 }
 }
