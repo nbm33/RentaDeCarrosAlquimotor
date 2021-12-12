@@ -1,1 +1,22 @@
-<p>eliminar-asesor works!</p>
+<div id="cabecera">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Eliminar este asesor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <li><strong>Nombre:</strong>{{Asesor.Nombre}}</li>
+                <li><strong>Apellidos:</strong>{{Asesor.Apellido}}</li>
+                <li><strong>Celular:</strong>{{Asesor.Celular}}</li>
+                <li><strong>CorreoElectronico:</strong>${{Asesor.CorreoElectronico}}</li>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button (click)="Eliminar()" class="w-100 btn-primary float-end btn-lg btn-success">Eliminar Asesor</button>
+    </div>
+    <br>
+    <br>
+</div>

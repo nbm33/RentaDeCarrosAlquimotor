@@ -18,8 +18,12 @@ export class AsesorService {
     return this.http.get<ModeloUsuario[]>(`${this.url}/usuarios`);
 
   }
-  ObtenerRegistrosporid(id: string): Observable<ModeloUsuario[]> {
-    return this.http.get<ModeloUsuario[]>(`${this.url}/usuarios/${id}`);
+  ObtenerRegistrosPorId(id: string): Observable<ModeloUsuario> {
+    return this.http.get<ModeloUsuario>(`${this.url}/usuarios/${id}`);
+
+  }
+  ObtenerAsesoresPorId(id: string): Observable<ModeloUsuario> {
+    return this.http.get<ModeloUsuario>(`${this.url}/usuarios/${id}`);
 
   }
   CrearAsesor(asesores: ModeloUsuario): Observable<ModeloUsuario> {
@@ -31,7 +35,7 @@ export class AsesorService {
   } 
 
   ActualizarAsesor(asesor: ModeloAsesor): Observable<ModeloAsesor> {
-    return this.http.put<ModeloAsesor>(`${this.url}/asesores`, asesor, {
+    return this.http.put<ModeloAsesor>(`${this.url}/usuarios/${asesor.id}`, asesor, {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.token}`
       })
@@ -39,7 +43,7 @@ export class AsesorService {
   }
 
   EliminarAsesor(id: string): Observable<any> {
-    return this.http.delete<ModeloAsesor>(`${this.url}/asesores/${id}`, {
+    return this.http.delete<ModeloAsesor>(`${this.url}/usuarios/${id}`, {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.token}`
       })

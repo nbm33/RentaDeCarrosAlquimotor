@@ -9,6 +9,7 @@
                 <th>Cedula</th>
                 <th>CorreoElectronico</th>
                 <th>Editar</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody>
@@ -18,6 +19,7 @@
                     <td>{{a.Celular}}</td>
                     <td>{{a.CorreoElectronico}}</td>
                     <td><a routerLink="/administracion/editar-asesor/{{a.id}}" class="btn-danger">Editar Asesor</a></td>
+                    <td><a routerLink="/administracion/eliminar-asesor/{{a.id}}" class="btn-danger">Eliminar Asesor</a></td>
 
                 </tr>
     </tbody>      
