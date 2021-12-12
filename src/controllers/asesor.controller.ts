@@ -1,21 +1,16 @@
+import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
 import {Asesores} from '../models';
 import {AsesoresRepository} from '../repositories';
@@ -23,9 +18,10 @@ import {AsesoresRepository} from '../repositories';
 export class AsesorController {
   constructor(
     @repository(AsesoresRepository)
-    public asesoresRepository : AsesoresRepository,
-  ) {}
+    public asesoresRepository: AsesoresRepository,
+  ) { }
 
+  @authenticate.skip()
   @post('/asesores')
   @response(200, {
     description: 'Asesores model instance',

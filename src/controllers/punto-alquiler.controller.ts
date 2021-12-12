@@ -1,21 +1,16 @@
+import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
 import {PuntoAlquiler} from '../models';
 import {PuntoAlquilerRepository} from '../repositories';
@@ -23,8 +18,8 @@ import {PuntoAlquilerRepository} from '../repositories';
 export class PuntoAlquilerController {
   constructor(
     @repository(PuntoAlquilerRepository)
-    public puntoAlquilerRepository : PuntoAlquilerRepository,
-  ) {}
+    public puntoAlquilerRepository: PuntoAlquilerRepository,
+  ) { }
 
   @post('/punto-alquilers')
   @response(200, {
@@ -95,6 +90,7 @@ export class PuntoAlquilerController {
     return this.puntoAlquilerRepository.updateAll(puntoAlquiler, where);
   }
 
+  @authenticate.skip()
   @get('/punto-alquilers/{id}')
   @response(200, {
     description: 'PuntoAlquiler model instance',
@@ -139,7 +135,7 @@ export class PuntoAlquilerController {
   ): Promise<void> {
     await this.puntoAlquilerRepository.replaceById(id, puntoAlquiler);
   }
-
+  @authenticate.skip()
   @del('/punto-alquilers/{id}')
   @response(204, {
     description: 'PuntoAlquiler DELETE success',

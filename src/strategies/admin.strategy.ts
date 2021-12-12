@@ -10,27 +10,27 @@ export class EstrategiaAdministrador implements AuthenticationStrategy {
 
   constructor(
     @service(AutenticacionService)
-    public servicioAutenticacion : AutenticacionService
-  ){
+    public servicioAutenticacion: AutenticacionService
+  ) {
   }
 
   async authenticate(request: Request): Promise<UserProfile | undefined> {
     let token = parseBearerToken(request);
-    if(token){
+    if (token) {
       let datos = this.servicioAutenticacion.ValidarTokenJWT(token);
-      if(datos){
-        if(datos.data.rol === "administrador"){
+      if (datos) {
+        if (datos.data.rol === "administrador") {
           let perfil: UserProfile = Object.assign({
             nombre: datos.data.nombre
           });
           return perfil;
-        }else{
+        } else {
           throw new HttpErrors[401]("Alquimotor: No es un rol valido")
         }
-      }else{
+      } else {
         throw new HttpErrors[401]("Alquimotor: El token incluido no es válido")
       }
-    }else{
+    } else {
       throw new HttpErrors[401]("Alquimotor: No se ha incluido un token en la solicitud")
     }
   }
