@@ -12,8 +12,9 @@
                 <th>Fecha Entrega</th>
                 <th>Valor Total</th>
                 <th>Fecha Solicitud</th>
-                <th>Estado</th>
                 <th></th>
+                <th></th>
+                <th>Estado</th>
                 <th></th>
             </tr>
         </thead>
@@ -25,13 +26,11 @@
                 <td>{{s.FechaRecogida | date}}</td>
                 <td>{{s.FechaEntrega | date}}</td>
                 <td><strong>${{s.ValorTotal | number}}</strong></td>
-                <td>{{s.FechaSolicitud | date}}</td>                
+                <td>{{s.FechaSolicitud | date}}</td>
+                <td>___</td>                
                 <td>{{s.Estado}}</td>
-                <input type="hidden" id="estadoS" name="estadoS" value="{{s.Estado}}" #estadoS>              
-                <td *ngIf="estadoS.value == 'En estudio'"><a class="btn btn-secondary" (click)="Declinar(idS.value)">Declinar</a></td>
-                <td *ngIf="estadoS.value == 'En estudio'"><a class="btn btn-secondary" routerLink="/administracion/editar-solicitud/{{s.id}}">Editar</a></td>
-                <td *ngIf="estadoS.value == 'Aceptada'"><a class="btn btn-secondary" (click)="Pagar()">Pagar</a></td>
-                <td *ngIf="estadoS.value == 'Aceptada'"></td>
+                <td><a class="btn btn-success" (click)="AceptarSolicitud(idS.value)">Habilitar</a></td>
+                <td><a class="btn btn-primary" (click)="RechazarSolicitud(idS.value)">Retener</a></td>
             </tr>                    
         </tbody>
     </table>
@@ -39,4 +38,3 @@
     <br>
     <button class="w-100 btn btn-lg btn-danger" type="submit" routerLink="/administracion/cliente-vehiculo">Nueva Solicitud</button>
 </div>
-

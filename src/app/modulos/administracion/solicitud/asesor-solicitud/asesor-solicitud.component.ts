@@ -6,13 +6,12 @@ import { SolicitudService } from 'src/app/servicios/solicitud.service';
 import { VehiculosService } from 'src/app/servicios/vehiculos.service';
 
 @Component({
-  selector: 'app-buscar-solicitud',
-  templateUrl: './buscar-solicitud.component.html',
-  styleUrls: ['./buscar-solicitud.component.css']
+  selector: 'app-asesor-solicitud',
+  templateUrl: './asesor-solicitud.component.html',
+  styleUrls: ['./asesor-solicitud.component.css']
 })
-
-export class BuscarSolicitudComponent implements OnInit {
-
+export class AsesorSolicitudComponent implements OnInit {
+  
   listadoRegistros: ModeloSolicitud[] = [];
   solicitud: any='';
   id='';
@@ -24,6 +23,10 @@ export class BuscarSolicitudComponent implements OnInit {
 
   ngOnInit(): void {
     this.ObtenerListadoSolicitudes();
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
   BuscarSolicitud(){
@@ -62,9 +65,36 @@ export class BuscarSolicitudComponent implements OnInit {
     });
   }
 
-  Pagar(){
-    
+  AceptarSolicitud(idS: string){
+    this.id = idS;
+    this.BuscarSolicitud();  
+
+    let s = new ModeloSolicitud();
+    s= this.solicitud;
+    s.Estado = ["Aceptada"];
+
+    this.solicitudServicio.EditarSolicitud(s).subscribe((datos: ModeloSolicitud)=>{
+      alert("Solicitud eliminada exitosamente");
+      this.refresh()
+    }, (error: any) => {
+      alert("Error al eliminar la solicitud");
+    });
   }
 
+  RechazarSolicitud(idS: string){
+    this.id = idS;
+    this.BuscarSolicitud();
+
+    let s = new ModeloSolicitud();
+    s= this.solicitud;
+    s.Estado = ["Declinada"];
+
+    this.solicitudServicio.EditarSolicitud(s).subscribe((datos: ModeloSolicitud)=>{
+      alert("Solicitud eliminada exitosamente");
+      this.refresh()
+    }, (error: any) => {
+      alert("Error al eliminar la solicitud");
+    });
+  }
 
 }

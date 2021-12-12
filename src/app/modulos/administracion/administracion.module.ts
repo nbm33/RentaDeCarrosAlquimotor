@@ -21,6 +21,8 @@ import { CrearPuntoComponent } from './puntoAlquiler/crear-punto/crear-punto.com
 import { EditarPuntoComponent } from './puntoAlquiler/editar-punto/editar-punto.component';
 import { EliminarPuntoComponent } from './puntoAlquiler/eliminar-punto/eliminar-punto.component';
 import { BuscarPuntoComponent } from './puntoAlquiler/buscar-punto/buscar-punto.component';
+import { AsesorVehiculoComponent } from './vehiculos/asesor-vehiculo/asesor-vehiculo.component';
+import { AsesorSolicitudComponent } from './solicitud/asesor-solicitud/asesor-solicitud.component';
 
 
 
@@ -43,7 +45,9 @@ import { BuscarPuntoComponent } from './puntoAlquiler/buscar-punto/buscar-punto.
     CrearPuntoComponent,
     EditarPuntoComponent,
     EliminarPuntoComponent,
-    BuscarPuntoComponent
+    BuscarPuntoComponent,
+    AsesorVehiculoComponent,
+    AsesorSolicitudComponent
   ],
   imports: [
     CommonModule,
