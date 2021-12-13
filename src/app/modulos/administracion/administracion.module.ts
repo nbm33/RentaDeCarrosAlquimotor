@@ -22,6 +22,9 @@ import { BuscarSolicitudComponent } from './solicitud/buscar-solicitud/buscar-so
 import { EditarSolicitudComponent } from './solicitud/editar-solicitud/editar-solicitud.component';
 import { EliminarSolicitudComponent } from './solicitud/eliminar-solicitud/eliminar-solicitud.component';
 import { AsesorSolicitudComponent } from './solicitud/asesor-solicitud/asesor-solicitud.component';
+import { CrearTarjetaComponent } from './tajertacredito/crear-tarjeta/crear-tarjeta.component';
+import { EliminarTarjetaComponent } from './tajertacredito/eliminar-tarjeta/eliminar-tarjeta.component';
+import { PagoSolicitudComponent } from './tajertacredito/pago-solicitud/pago-solicitud.component';
 
 
 
@@ -45,7 +48,10 @@ import { AsesorSolicitudComponent } from './solicitud/asesor-solicitud/asesor-so
     BuscarSolicitudComponent,
     EditarSolicitudComponent,
     EliminarSolicitudComponent,
-    AsesorSolicitudComponent
+    AsesorSolicitudComponent,
+    CrearTarjetaComponent,
+    EliminarTarjetaComponent,
+    PagoSolicitudComponent
   ],
   imports: [
     CommonModule,

@@ -18,6 +18,7 @@ import { EliminarPuntoComponent } from './puntoAlquiler/eliminar-punto/eliminar-
 import { CrearPuntoComponent } from './puntoAlquiler/crear-punto/crear-punto.component';
 import { BuscarPuntoComponent } from './puntoAlquiler/buscar-punto/buscar-punto.component';
 import { AsesorSolicitudComponent } from './solicitud/asesor-solicitud/asesor-solicitud.component';
+import { CrearTarjetaComponent } from './tajertacredito/crear-tarjeta/crear-tarjeta.component';
 
 const routes: Routes = [
   { 
@@ -38,11 +39,11 @@ const routes: Routes = [
     component: BuscarVehiculoComponent
   },
   { 
-    path: 'editar-vehiculo',
+    path: 'editar-vehiculo/:id',
     component: EditarVehiculoComponent
   },
   { 
-    path: 'eliminar-vehiculo',
+    path: 'eliminar-vehiculo/:id',
     component: EliminarVehiculoComponent
   },  
   { 
@@ -93,7 +94,13 @@ const routes: Routes = [
   { 
     path: 'asesor-solicitud',
     component: AsesorSolicitudComponent
+  },
+  {
+    path: 'crear-tarjeta',
+  component: CrearTarjetaComponent
   }
+  
+
 ];
 
 @NgModule({
