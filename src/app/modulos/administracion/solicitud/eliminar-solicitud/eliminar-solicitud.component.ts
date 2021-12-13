@@ -28,7 +28,7 @@ export class EliminarSolicitudComponent implements OnInit {
   Eliminar(){
     this.servicioSolicitud.EliminarSolicitud(this.id).subscribe((datos: ModeloSolicitud) => {
       alert("Solicitud eliminada correctamente");
-      this.router.navigate(["/administracion/buscar-solicitud"])
+      this.router.navigate(["/administracion/asesor-solicitud"])
     }, (error:any) => {
       alert("Error al eliminar la solicitud")
     }
