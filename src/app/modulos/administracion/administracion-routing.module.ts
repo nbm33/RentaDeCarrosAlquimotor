@@ -5,6 +5,10 @@ import { BuscarSolicitudComponent } from './solicitud/buscar-solicitud/buscar-so
 import { CrearSolicitudComponent } from './solicitud/crear-solicitud/crear-solicitud.component';
 import { EditarSolicitudComponent } from './solicitud/editar-solicitud/editar-solicitud.component';
 import { EliminarSolicitudComponent } from './solicitud/eliminar-solicitud/eliminar-solicitud.component';
+import { BuscarAsesorComponent } from './asesores/buscar-asesor/buscar-asesor.component';
+import { CrearAsesorComponent } from './asesores/crear-asesor/crear-asesor.component';
+import { EditarAsesorComponent } from './asesores/editar-asesor/editar-asesor.component';
+import { EliminarAsesorComponent } from './asesores/eliminar-asesor/eliminar-asesor.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario/editar-usuario.component';
 import { BuscarVehiculoComponent } from './vehiculos/buscar-vehiculo/buscar-vehiculo.component';
@@ -28,6 +32,27 @@ const routes: Routes = [
     path: 'editar-usuario',
     component: EditarUsuarioComponent,
     canActivate: [ValidadorSesionGuard]
+  },
+  
+  { 
+    path: 'crear-asesor',
+    component: CrearAsesorComponent
+  },
+  {
+    path: "listar-asesores",
+    component: BuscarAsesorComponent
+  },
+  { 
+    path: 'editar-asesor/:id',
+    component: EditarAsesorComponent
+  },
+  { 
+    path: 'eliminar-asesor/:id',
+    component: EliminarAsesorComponent
+  },
+  { 
+    path: 'buscar-asesor',
+    component: BuscarAsesorComponent
   },
   { 
     path: 'crear-vehiculo',

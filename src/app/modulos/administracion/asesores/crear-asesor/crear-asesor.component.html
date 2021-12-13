@@ -1,0 +1,43 @@
+<div class="abs-center">
+    <form [formGroup]="fgValitador" (ngSubmit)="GuardarAsesor()">
+      <br>
+      <br>
+        <div id="form1">
+            <img class="mb-4" src="assets/img/imagen4.jpg" alt="">
+            <h1>Bienvenido a Alquimotor.</h1>
+            <h3 class="h2 mb-3 fw-normal">Crear asesor:</h3>
+        </div>  
+        <br>
+        <div class="row">
+          <div class="col-md-6 form">
+              <label for="nombre">Nombre: </label>
+              <input id="nombre" type="text" formControlName="nombre" class="form-control" placeholder="Alberto">
+          </div>
+          <div class="col-md-6 form">
+              <label for="apellido">Apellidos: </label>
+              <input id="apellido" type="text" formControlName="apellidos" class="form-control" placeholder="Ramirez">  
+          </div>
+        </div>  
+        <br>
+        <div class="row">
+          <div class="col-md-12 form">
+            <label for="correo">Correo: </label>
+            <input id="correo" type="text" formControlName="correoElectronico" class="form-control" placeholder="tu@ejemplo.com" aria-describedby="inputGroupPrepend">
+          </div>
+          <div class="col-md-12 form">
+              <label for="Celular">Celular: </label>
+              <input id="Celular" type="text" formControlName="Celular" class="form-control" placeholder="3101234567">  
+          </div>
+        </div>
+        <br>
+        <br>
+        <div>
+            <button type="submit" [disabled]="!fgValitador.valid" class="w-100 btn-primary float-end btn-lg btn-success">Ingresar</button>
+        </div>
+        <p class="mt-5 mb-3 text-muted">&copy; Alquimotor–2021</p>
+        <br>
+        <br>
+    </form>
+  </div>
+  
+  

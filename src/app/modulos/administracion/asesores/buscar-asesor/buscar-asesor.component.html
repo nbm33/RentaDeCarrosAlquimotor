@@ -1,0 +1,33 @@
+<br>
+<br>
+<div id="cabecera"> 
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Nombre </th>
+                <th>Apellido</th>
+                <th>Cedula</th>
+                <th>CorreoElectronico</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let a of listadoAsesores">
+                    <td>{{a.Nombre}}</td>
+                    <td>{{a.Apellido}}</td>
+                    <td>{{a.Celular}}</td>
+                    <td>{{a.CorreoElectronico}}</td>
+                    <td><a routerLink="/administracion/editar-asesor/{{a.id}}" class="btn-danger">Editar Asesor</a></td>
+                    <td><a routerLink="/administracion/eliminar-asesor/{{a.id}}" class="btn-danger">Eliminar Asesor</a></td>
+
+                </tr>
+    </tbody>      
+    </table>
+    <div>
+        <a routerLink="//administracion/crear-asesor" class="btn btn-danger">Crear Nuevo Asesor</a>
+    </div>
+</div>
+<br>
+<br>
+

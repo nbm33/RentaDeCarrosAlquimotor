@@ -22,6 +22,10 @@ import { BuscarSolicitudComponent } from './solicitud/buscar-solicitud/buscar-so
 import { EditarSolicitudComponent } from './solicitud/editar-solicitud/editar-solicitud.component';
 import { EliminarSolicitudComponent } from './solicitud/eliminar-solicitud/eliminar-solicitud.component';
 import { AsesorSolicitudComponent } from './solicitud/asesor-solicitud/asesor-solicitud.component';
+import { CrearAsesorComponent } from './asesores/crear-asesor/crear-asesor.component';
+import { EditarAsesorComponent } from './asesores/editar-asesor/editar-asesor.component';
+import { EliminarAsesorComponent } from './asesores/eliminar-asesor/eliminar-asesor.component';
+import { BuscarAsesorComponent } from './asesores/buscar-asesor/buscar-asesor.component';
 
 
 
@@ -45,7 +49,11 @@ import { AsesorSolicitudComponent } from './solicitud/asesor-solicitud/asesor-so
     BuscarSolicitudComponent,
     EditarSolicitudComponent,
     EliminarSolicitudComponent,
-    AsesorSolicitudComponent
+    AsesorSolicitudComponent,
+    CrearAsesorComponent,
+    EditarAsesorComponent,
+    EliminarAsesorComponent,
+    BuscarAsesorComponent
   ],
   imports: [
     CommonModule,

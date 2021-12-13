@@ -1,0 +1,13 @@
+#cabecera { 
+    width: 80%; 
+    margin-left: 80px;
+    text-align: center;
+}
+
+td {
+    vertical-align: middle;
+}
+
+#imagen { 
+    width: 120px; 
+}
