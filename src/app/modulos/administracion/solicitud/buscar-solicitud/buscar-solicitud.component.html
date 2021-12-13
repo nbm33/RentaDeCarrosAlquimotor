@@ -31,7 +31,9 @@
                 <input type="hidden" id="estadoS" name="estadoS" value="{{s.Estado}}" #estadoS>              
                 <td *ngIf="estadoS.value == 'En estudio'"><a class="btn btn-secondary" (click)="Declinar(idS.value)">Declinar</a></td>
                 <td *ngIf="estadoS.value == 'En estudio'"><a class="btn btn-secondary" routerLink="/administracion/editar-solicitud/{{s.id}}">Editar</a></td>
-                <td *ngIf="estadoS.value == 'Aceptada'"><a class="btn btn-secondary" (click)="Pagar()">Pagar</a></td>
+                <td *ngIf="estadoS.value == 'Aceptada'"><a class="btn btn-secondary" routerLink="/administracion/crear-tarjeta/">Pagar</a></td>
+                <label *ngIf="estadoS.value == 'Aceptada'">Ingrese al link para acceder al contrato</label>
+                <a *ngIf="estadoS.value == 'Aceptada'"href= "https://docs.google.com/document/d/1iQrHi4OefjSRa76fTVAfNSQ3w6aYFHCb/edit?usp=sharing&ouid=107319792223269119631&rtpof=true&sd=true">Ingrese al link</a>
                 <td *ngIf="estadoS.value == 'Aceptada'"></td>
             </tr>                    
         </tbody>

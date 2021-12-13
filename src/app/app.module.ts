@@ -14,6 +14,7 @@ import { VehiculosComponent } from './plantilla/vehiculos/vehiculos.component';
 import { ContactoComponent } from './plantilla/contacto/contacto.component';
 import { SolicitudComponent } from './plantilla/solicitud/solicitud.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PagoSolicitudComponent } from './administracion/tajertacredito/pago-solicitud/pago-solicitud.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     ErrorComponent,
     VehiculosComponent,
     ContactoComponent,
-    SolicitudComponent
+    SolicitudComponent,
+    PagoSolicitudComponent
   ],
   imports: [
     BrowserModule,
