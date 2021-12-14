@@ -1,0 +1,48 @@
+<div class="creditCardForm">
+    <div class="heading">
+        <h1>Ingresar Datos Tarjeta Credito</h1>
+    </div>
+    <div class="payment">
+        <form [formGroup] ="fgValidador" method="POST" (ngSubmit)="GuardarTarjetaCredito()" action="formulario-contacto.php">
+            
+            <div class="form-group numero">
+                <label for="numero">Numero tarjeta</label>
+                <input formControlName="numero" type="text" name="numero" required>
+            </div>
+            <div class="form-group CVV">
+                <label for="cvv">CVV</label>
+                <input formControlName="codigo" type="text" class="form-control" >
+            </div>
+            <div class="form-group" id="card-number-field">
+                <label for="nombre">Nombre Completo Propietario</label>
+                <input formControlName="nombre" type="text" class="form-control" >
+            </div>
+            <div class="form-group" id="expiration-date">
+                <label>Fecha de Vencimiento</label>
+                <input formControlName="fechaexpiracion" type="text" >
+                           
+
+                <label for="foto">Foto: </label>
+                <input id="foto" type="text" formControlName="foto" class="form-control" placeholder="Ruta">
+            </div>
+            <br>
+            <div class="col-md-12 form">
+            <label for="solicitudId" class="form-label">Numero Solicitud: </label>
+            <select id="solicitudId" class="form-select"  type="text" >
+                <option *ngFor="let obj of listadoSolicitudes" >{{obj.id}}</option>
+            </select> 
+            </div>
+            <br>
+            
+            <div class="form-group" id="credit_cards">
+                <img src="assets/img/visa.jpg" id="visa">
+                <img src="assets/img/mastercard.jpg" id="mastercard">
+                <img src="assets/img/amex.jpg" id="amex">
+            </div>
+            <div class="form-group" id="pay-now">
+                
+                <button type="submit" class="btn btn-default" id="confirm-purchase">Pagar</button>
+            </div>
+        </form>
+    </div>
+</div>

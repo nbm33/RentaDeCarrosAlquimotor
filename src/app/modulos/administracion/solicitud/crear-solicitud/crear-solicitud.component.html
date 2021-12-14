@@ -1,0 +1,59 @@
+<div class="container">
+    <br>
+    <br>
+    <img id="imagen"class="mb-4" src="assets/img/imagen4.jpg" alt="">
+    <h1 class="h3 mb-3 text-danger">Solicitud de vehiculo</h1>
+    <br>
+    <form [formGroup]="fgValidador" (ngSubmit)="GuardarSolicitud()" method="post" class="row g-3 needs-validation" novalidate>
+        
+        <table class="table">            
+            <tbody>
+              <tr>
+                <th scope="row">Usuario</th>
+                <td>{{cliente.correo}}</td>        
+              </tr>
+              <tr>
+                <th scope="row">Vehiculo</th>
+                <td>
+                    <label >{{Vehiculo.Marca}} 
+                        <br>{{Vehiculo.Tipo}} 
+                        <br>{{Vehiculo.Modelo}}
+                    </label>
+                </td>                
+              </tr>
+              <tr>
+                <th scope="row">Punto Alquiler</th>
+                <td>
+                    <label formControlName="puntoAlquilerId">{{Vehiculo.puntoAlquilerId}} </label>
+                </td>               
+              </tr>
+            </tbody>
+        </table>             
+      
+        <div class=" px-1 px-sm-5 mx-auto">                                      
+            <b><label class="ml-3 form-control-placeholder">Tiempo de reserva:</label></b>
+            <br>
+            <div class="row">                
+                <div class="col-md-6 form">
+                    <label class="ml-3 form-control-placeholder" for="FechaRecogida">Fecha Inicio: </label> 
+                    <input formControlName="FechaRecogida" type="date"  name="FechaRecogida" class="form-control text-left mr-2">
+                </div>
+                <div class="col-md-6 form">
+                    <label class="ml-3 form-control-placeholder" for="FechaEntrega">Fecha Fin: </label> 
+                    <input formControlName="FechaEntrega" type="date" name="FechaEntrega" class="form-control text-left ml-2"> 
+                </div>               
+            </div>  
+            <br>
+        </div>                                                
+        <div class="col-6">
+            <br>
+            <br>
+            <button [disabled]="!fgValidador.valid" class="w-100 btn btn-lg btn-danger" type="submit">Enviar Solicitud</button>
+        </div>
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+<p class="mt-5 mb-3 text-muted">&copy; Alquimotor–2021</p>    

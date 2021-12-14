@@ -1,0 +1,41 @@
+<div class="container">
+    <br>
+    <br>
+    <img class="mb-4" src="assets/img/imagen4.jpg" alt="">
+    <h1 class="h3 mb-3 fw-normal">Reservas Asignadas</h1>
+    
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th>Vehiculo</th>
+                <th>Punto Alquiler</th>
+                <th>Fecha Recogida</th>
+                <th>Fecha Entrega</th>
+                <th>Valor Total</th>
+                <th>Fecha Solicitud</th>
+                <th></th>
+                <th></th>
+                <th>Estado</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of listadoRegistros">
+                <input type="hidden" id="idS" name="idS" value="{{s.id}}" #idS>
+                <td>{{s.vehiculosTipo}}</td>
+                <td>{{s.puntoAlquilerId}}</td>
+                <td>{{s.FechaRecogida | date}}</td>
+                <td>{{s.FechaEntrega | date}}</td>
+                <td><strong>${{s.ValorTotal | number}}</strong></td>
+                <td>{{s.FechaSolicitud | date}}</td>
+                <td>___</td>                
+                <td>{{s.Estado}}</td>
+                <td><a class="btn btn-success" (click)="AceptarSolicitud(idS.value)">Habilitar</a></td>
+                <td><a class="btn btn-primary" (click)="RechazarSolicitud(idS.value)">Retener</a></td>
+            </tr>                    
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <button class="w-100 btn btn-lg btn-danger" type="submit" routerLink="/administracion/cliente-vehiculo">Nueva Solicitud</button>
+</div>
