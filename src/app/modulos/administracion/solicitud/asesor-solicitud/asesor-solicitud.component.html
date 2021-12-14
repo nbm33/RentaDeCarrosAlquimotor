@@ -3,7 +3,7 @@
     <br>
     <img class="mb-4" src="assets/img/imagen4.jpg" alt="">
     <h1 class="h3 mb-3 fw-normal">Reservas Asignadas</h1>
-    <form name="form">
+    
     <table class="table table-responsive table-striped">
         <thead>
             <tr>
@@ -13,29 +13,29 @@
                 <th>Fecha Entrega</th>
                 <th>Valor Total</th>
                 <th>Fecha Solicitud</th>
-                <th>Estado</th>
                 <th></th>
+                <th></th>
+                <th>Estado</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let s of listadoRegistros">
                 <input type="hidden" id="idS" name="idS" value="{{s.id}}" #idS>
-                <td>{{s.vehiculosId}}</td>
+                <td>{{s.vehiculosTipo}}</td>
                 <td>{{s.puntoAlquilerId}}</td>
-                <td>{{s.FechaRecogida}}</td>
-                <td>{{s.FechaEntrega}}</td>
-                <td>{{s.ValorTotal | number}}</td>
-                <td>{{s.FechaSolicitud}}</td>                
+                <td>{{s.FechaRecogida | date}}</td>
+                <td>{{s.FechaEntrega | date}}</td>
+                <td><strong>${{s.ValorTotal | number}}</strong></td>
+                <td>{{s.FechaSolicitud | date}}</td>
+                <td>___</td>                
                 <td>{{s.Estado}}</td>
-                <input type="hidden" id="estadoS" name="estadoS" value="{{s.Estado}}" #estadoS> 
-                <td><a *ngIf="estadoS.value == 'En estudio'" class="btn btn-secondary" (click)="Aceptar(idS.value)">Aceptar</a></td>
-                <td><a *ngIf="estadoS.value == 'En estudio'" class="btn btn-secondary" (click)="Rechazar(idS.value)">Rechazar</a></td>
+                <td><a class="btn btn-success" (click)="AceptarSolicitud(idS.value)">Habilitar</a></td>
+                <td><a class="btn btn-primary" (click)="RechazarSolicitud(idS.value)">Retener</a></td>
             </tr>                    
         </tbody>
     </table>
-</form>
     <br>
-    <br>   
+    <br>
+    <button class="w-100 btn btn-lg btn-danger" type="submit" routerLink="/administracion/cliente-vehiculo">Nueva Solicitud</button>
 </div>
-

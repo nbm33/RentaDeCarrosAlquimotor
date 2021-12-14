@@ -67,6 +67,16 @@ export class SeguridadService {
     localStorage.setItem("datosUsuario",stringUsuario);
   };
 
+  ObtenerUsuario() {
+    let datosString = localStorage.getItem("datosUsuario");
+    if(datosString){
+      let datos = JSON.parse(datosString);
+      return datos
+    }else{
+      return null;
+    }
+  };
+
   AlmacenarClave(datos: ModeloClave) {
     let stringUsuario = JSON.stringify(datos);
     localStorage.setItem("datosClave",stringUsuario);

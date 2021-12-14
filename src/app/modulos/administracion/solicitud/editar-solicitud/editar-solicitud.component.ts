@@ -18,13 +18,15 @@ import { VehiculosService } from 'src/app/servicios/vehiculos.service';
 })
 export class EditarSolicitudComponent implements OnInit {
   
-  id='';    
-  Vehiculo: any ={};
+  id='';  
+  idV: string = ""  
+  Vehiculo: ModeloVehiculo = {};
   cliente: any ='';
-  solicitud: any ='';
-  fgValidador: FormGroup = this.fb.group({
-    'FechaRecogida': ['',[Validators.required]],
-    'FechaEntrega': ['',[Validators.required]]    
+  solicitud: ModeloSolicitud = {};
+
+  fgValidador = this.fb.group({
+    FechaRecogida: ['',[Validators.required]],
+    FechaEntrega: ['',[Validators.required]]    
   });  
   
   constructor(private fb: FormBuilder, private servicioSolicitud : SolicitudService, private router: Router,
@@ -36,11 +38,9 @@ export class EditarSolicitudComponent implements OnInit {
   ngOnInit(): void {    
     this.id = this.route.snapshot.params['id'];
     this.ObtenerDatosCliente(); 
-    this.BuscarSolicitud();         
-    this.BuscarVehiculo();                           
   }
-  
   ObtenerDatosCliente(){
+  
     this.sesionService.ObtenerDatosSesion().subscribe((datosC: ModeloIdentificar) => {
       this.cliente = datosC.datos;
     })
@@ -52,23 +52,24 @@ export class EditarSolicitudComponent implements OnInit {
     })        
   } 
 
-  BuscarVehiculo(){          
-    this.vehiculoService.ObtenerVehiculosId(this.solicitud.vehiculosId).subscribe((datosV: ModeloVehiculo) => {
-      this.Vehiculo = datosV;
+  BuscarVehiculo(){
+    this.vehiculoService.ObtenerVehiculosId(this.idV).subscribe((datos: ModeloVehiculo) => {
+      this.Vehiculo = datos;
     })
   }
 
-  EditarSolicitud(){          
-    this.BuscarVehiculo();
+  EditarSolicitud(){  
+    console.log(this.solicitud.vehiculosId!);       
     let fechaRecogida = this.fgValidador.controls["FechaRecogida"].value+"T00:00:00Z";
-    let fechaEntrega = this.fgValidador.controls["FechaEntrega"].value+"T00:00:00Z"; 
+    let fechaEntrega = this.fgValidador.controls["FechaEntrega"].value+"T00:00:00Z";
     let fechai = new Date(this.fgValidador.controls["FechaRecogida"].value).getTime();
     let fechaf = new Date(this.fgValidador.controls["FechaEntrega"].value).getTime();
-    let dias = (fechaf - fechai)/(1000*60*60*24);  
-    let valorTotal: any =  dias* this.Vehiculo.ValorDia;
+    let dias = (fechaf - fechai)/(1000*60*60*24);    
+    let valorTotal: any =  dias * this.Vehiculo.ValorDia!;
     let clienteId = this.cliente.id;
     let puntoAlquilerId = this.solicitud.puntoAlquilerId;
-    let vehiculosId = this.solicitud.vehiculosId;   
+    let vehiculosId = this.solicitud.vehiculosId;
+    let vehiculosTipo = this.solicitud.vehiculosTipo;   
     
     let s = new ModeloSolicitud();
     s.id=this.id;
@@ -79,8 +80,9 @@ export class EditarSolicitudComponent implements OnInit {
     s.ValorTotal=valorTotal;
     s.clienteId=clienteId;
     s.puntoAlquilerId=puntoAlquilerId;
-    s.vehiculosId=vehiculosId;    
-    
+    s.vehiculosId=vehiculosId;
+    s.vehiculosTipo=vehiculosTipo;     
+
     this.servicioSolicitud.EditarSolicitud(s).subscribe((datos: ModeloSolicitud)=>{
       alert("Solicitud modificada exitosamente");
       this.router.navigate(["/administracion/buscar-solicitud"]);

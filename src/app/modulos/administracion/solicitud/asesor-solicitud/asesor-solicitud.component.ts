@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ModeloSolicitud } from 'src/app/modelos/solicitud.modelo';
+import { ModeloVehiculo } from 'src/app/modelos/vehicolo.modelo';
 import { SolicitudService } from 'src/app/servicios/solicitud.service';
+import { VehiculosService } from 'src/app/servicios/vehiculos.service';
 
 @Component({
   selector: 'app-asesor-solicitud',
@@ -9,16 +11,22 @@ import { SolicitudService } from 'src/app/servicios/solicitud.service';
   styleUrls: ['./asesor-solicitud.component.css']
 })
 export class AsesorSolicitudComponent implements OnInit {
-
+  
   listadoRegistros: ModeloSolicitud[] = [];
-  id='';
   solicitud: any='';
-  constructor(private solicitudServicio : SolicitudService, private router: Router) {
+  id='';
+  vehiculo: ModeloVehiculo={};
+
+  constructor(private solicitudServicio : SolicitudService, private vehiculosService: VehiculosService,private router: Router) {
     
    }
 
   ngOnInit(): void {
-    this.ObtenerListadoSolicitudes();                         
+    this.ObtenerListadoSolicitudes();
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
   BuscarSolicitud(){
@@ -29,39 +37,64 @@ export class AsesorSolicitudComponent implements OnInit {
 
   ObtenerListadoSolicitudes(){
     this.solicitudServicio.ObtenerRegistros().subscribe((datos: ModeloSolicitud[]) => {
-      this.listadoRegistros = datos;      
+      this.listadoRegistros = datos;
+      //alert("Solicitud creada exitosamente"+ this.listadoRegistros[0].id);
     })
   }
 
-  Aceptar(idS: string){
+  ObtenerVehiculo(idV: string){
+    this.vehiculosService.ObtenerVehiculosId(idV).subscribe((datos: ModeloVehiculo) => {
+      this.vehiculo = datos;
+    })
+    
+  }
+
+  Declinar(idS: string){
     this.id = idS;
     this.BuscarSolicitud();  
 
     let s = new ModeloSolicitud();
     s= this.solicitud;
-    s.Estado= ["Aceptada"];   
-    
+    s.Estado= ["Declinada"];
+       
     this.solicitudServicio.EditarSolicitud(s).subscribe((datos: ModeloSolicitud)=>{
-      alert("Solicitud modificada exitosamente");
-      this.router.navigate(["/administracion/asesor-solicitud"]);
+      alert("Solicitud eliminada exitosamente");
+      this.router.navigate(["/administracion/buscar-solicitud"]);
     }, (error: any) => {
-      alert("Error al modificar la solicitud");
+      alert("Error al eliminar la solicitud");
     });
   }
 
-  Rechazar(idS: string){
+  AceptarSolicitud(idS: string){
     this.id = idS;
     this.BuscarSolicitud();  
 
     let s = new ModeloSolicitud();
-    s= this.solicitud;    
-    s.Estado= ["Rechazada"];    
-    
+    s= this.solicitud;
+    s.Estado = ["Aceptada"];
+
     this.solicitudServicio.EditarSolicitud(s).subscribe((datos: ModeloSolicitud)=>{
-      alert("Solicitud modificada exitosamente");
-      this.router.navigate(["/administracion/asesor-solicitud"]);
+      alert("Solicitud eliminada exitosamente");
+      this.refresh()
     }, (error: any) => {
-      alert("Error al modificar la solicitud");
+      alert("Error al eliminar la solicitud");
     });
   }
+
+  RechazarSolicitud(idS: string){
+    this.id = idS;
+    this.BuscarSolicitud();
+
+    let s = new ModeloSolicitud();
+    s= this.solicitud;
+    s.Estado = ["Declinada"];
+
+    this.solicitudServicio.EditarSolicitud(s).subscribe((datos: ModeloSolicitud)=>{
+      alert("Solicitud eliminada exitosamente");
+      this.refresh()
+    }, (error: any) => {
+      alert("Error al eliminar la solicitud");
+    });
+  }
+
 }

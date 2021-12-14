@@ -29,6 +29,7 @@ import { BuscarAsesorComponent } from './asesores/buscar-asesor/buscar-asesor.co
 import { CrearTarjetaComponent } from './tajertacredito/crear-tarjeta/crear-tarjeta.component';
 import { EliminarTarjetaComponent } from './tajertacredito/eliminar-tarjeta/eliminar-tarjeta.component';
 import { PagoSolicitudComponent } from './tajertacredito/pago-solicitud/pago-solicitud.component';
+import { AsesorVehiculoComponent } from './vehiculos/asesor-vehiculo/asesor-vehiculo.component';
 
 
 
@@ -59,7 +60,9 @@ import { PagoSolicitudComponent } from './tajertacredito/pago-solicitud/pago-sol
     BuscarAsesorComponent,
     CrearTarjetaComponent,
     EliminarTarjetaComponent,
-    PagoSolicitudComponent
+    PagoSolicitudComponent,
+    AsesorVehiculoComponent,
+    AsesorSolicitudComponent
   ],
   imports: [
     CommonModule,

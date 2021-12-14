@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ModeloSolicitud } from 'src/app/modelos/solicitud.modelo';
+import { ModeloVehiculo } from 'src/app/modelos/vehicolo.modelo';
 import { SolicitudService } from 'src/app/servicios/solicitud.service';
 import { VehiculosService } from 'src/app/servicios/vehiculos.service';
 
@@ -9,20 +10,21 @@ import { VehiculosService } from 'src/app/servicios/vehiculos.service';
   templateUrl: './buscar-solicitud.component.html',
   styleUrls: ['./buscar-solicitud.component.css']
 })
+
 export class BuscarSolicitudComponent implements OnInit {
 
   listadoRegistros: ModeloSolicitud[] = [];
-  id='';
   solicitud: any='';
-
-  constructor(private solicitudServicio : SolicitudService, private router: Router) {
+  id='';
+  vehiculo: ModeloVehiculo={};
+   
+  constructor(private solicitudServicio : SolicitudService, private vehiculosService: VehiculosService,private router: Router) {
     
-   }
+  }
 
   ngOnInit(): void {
     this.ObtenerListadoSolicitudes();    
   }
-
   BuscarSolicitud(){
     this.solicitudServicio.ObtenerRegistrosPorId(this.id).subscribe((datos: ModeloSolicitud) => {        
     this.solicitud=datos;                           
@@ -33,6 +35,13 @@ export class BuscarSolicitudComponent implements OnInit {
     this.solicitudServicio.ObtenerRegistros().subscribe((datos: ModeloSolicitud[]) => {
       this.listadoRegistros = datos;      
     })
+  }
+
+  ObtenerVehiculo(idV: string){
+    this.vehiculosService.ObtenerVehiculosId(idV).subscribe((datos: ModeloVehiculo) => {
+      this.vehiculo = datos;
+    })
+    
   }
 
   Declinar(idS: string){
@@ -54,4 +63,6 @@ export class BuscarSolicitudComponent implements OnInit {
   Pagar(){
     
   }
+
+
 }

@@ -2,7 +2,7 @@
 <br>
 <div id="cabecera">
     <br>
-    <h1>Vahiculos para Reservar:</h1>
+    <h1>Modificar Disponibilidad:</h1>
     <br>
     <table class="table table-hover">
         <thead>
@@ -12,22 +12,24 @@
                 <th>Marca</th>
                 <th>Modelo</th>
                 <th>Punto Alquiler</th>
+                <th></th>
+                <th></th>
                 <th>Disponibilidad</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let v of listadoVehiculos">
+                <input type="hidden" id="idV" name="idV" value="{{v.id}}" #idV>
                 <td><img src="{{v.imagen}}" class="rounded-circle" id="imagen"/></td>
                 <td>{{v.Tipo}}</td>
                 <td>{{v.Marca}}</td>
                 <td>{{v.Modelo}}</td>
                 <td>{{v.puntoAlquilerId}}</td>
-                <td><strong>{{v.Disponibilidad && 'Disponible' || '¡ Reservado !'}}</strong></td>
-                <td *ngIf="v.Disponibilidad == true">
-                    <a routerLink="/administracion/ver-vehiculo/{{v.id}}" class="btn btn-danger">Ver Detalles</a>
-                </td>
-                <td *ngIf="v.Disponibilidad == false">
-                </td>
+                <td>___</td>
+                <td><strong>{{v.Disponibilidad && 'Disponible' || '¡ Reservado !'}}</strong></td> 
+                <td><a class="btn btn-success" (click)="CambiarHabilitado(idV.value)">Habilitar</a></td>
+                <td><a class="btn btn-primary" (click)="CambiarDesabilitado(idV.value)">Retener</a></td>
             </tr>
         </tbody>
     </table>

@@ -8,4 +8,5 @@ export class ModeloSolicitud{
     clienteId?: string;
     puntoAlquilerId?: string;
     vehiculosId?: string;
+    vehiculosTipo?: string;
 }

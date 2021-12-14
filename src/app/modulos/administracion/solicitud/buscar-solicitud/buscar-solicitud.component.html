@@ -21,19 +21,17 @@
         <tbody>
             <tr *ngFor="let s of listadoRegistros">
                 <input type="hidden" id="idS" name="idS" value="{{s.id}}" #idS>
-                <td>{{s.vehiculosId}}</td>
+                <td>{{s.vehiculosTipo}}</td>
                 <td>{{s.puntoAlquilerId}}</td>
-                <td>{{s.FechaRecogida}}</td>
-                <td>{{s.FechaEntrega}}</td>
-                <td>{{s.ValorTotal | number}}</td>
-                <td>{{s.FechaSolicitud}}</td>                
-                <td>{{s.Estado}}</td>  
+                <td>{{s.FechaRecogida | date}}</td>
+                <td>{{s.FechaEntrega | date}}</td>
+                <td><strong>${{s.ValorTotal | number}}</strong></td>
+                <td>{{s.FechaSolicitud | date}}</td>                
+                <td>{{s.Estado}}</td>
                 <input type="hidden" id="estadoS" name="estadoS" value="{{s.Estado}}" #estadoS>              
                 <td *ngIf="estadoS.value == 'En estudio'"><a class="btn btn-secondary" (click)="Declinar(idS.value)">Declinar</a></td>
                 <td *ngIf="estadoS.value == 'En estudio'"><a class="btn btn-secondary" routerLink="/administracion/editar-solicitud/{{s.id}}">Editar</a></td>
-                <td *ngIf="estadoS.value == 'Aceptada'"><a class="btn btn-secondary" routerLink="/administracion/crear-tarjeta/">Pagar</a></td>
-                <label *ngIf="estadoS.value == 'Aceptada'">Ingrese al link para acceder al contrato</label>
-                <a *ngIf="estadoS.value == 'Aceptada'"href= "https://docs.google.com/document/d/1iQrHi4OefjSRa76fTVAfNSQ3w6aYFHCb/edit?usp=sharing&ouid=107319792223269119631&rtpof=true&sd=true">Ingrese al link</a>
+                <td *ngIf="estadoS.value == 'Aceptada'"><a class="btn btn-secondary" (click)="Pagar()">Pagar</a></td>
                 <td *ngIf="estadoS.value == 'Aceptada'"></td>
             </tr>                    
         </tbody>
@@ -41,6 +39,6 @@
 </form>
     <br>
     <br>
-    <button class="w-100 btn btn-lg btn-success" type="submit" routerLink="/administracion/cliente-vehiculo">Nueva Solicitud</button>
+    <button class="w-100 btn btn-lg btn-danger" type="submit" routerLink="/administracion/cliente-vehiculo">Nueva Solicitud</button>
 </div>
 

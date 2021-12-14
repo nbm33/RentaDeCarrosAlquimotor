@@ -36,6 +36,12 @@
           <li *ngIf="usuarioRol === 'Administrador'" class="nav-item">
             <a class="nav-link" href="/administracion/buscar-punto">Punto</a>
           </li>
+          <li *ngIf="usuarioRol === 'Administrador'" class="nav-item">
+            <a class="nav-link" href="/administracion/asesor-vehiculo">Disponibilidad</a>
+          </li>
+          <li *ngIf="usuarioRol === 'Administrador'" class="nav-item">
+            <a class="nav-link" href="/administracion/asesor-solicitud">Solicitud</a>
+          </li>
           <li *ngIf="seInicioSesion" class="nav-item">
             <a routerLink="/seguridad/cerrar-sesion"><button class="btn btn-dark" type="submit">Cerrar Sesión</button></a>
           </li>

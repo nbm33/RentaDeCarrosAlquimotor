@@ -23,6 +23,7 @@ import { CrearPuntoComponent } from './puntoAlquiler/crear-punto/crear-punto.com
 import { BuscarPuntoComponent } from './puntoAlquiler/buscar-punto/buscar-punto.component';
 import { AsesorSolicitudComponent } from './solicitud/asesor-solicitud/asesor-solicitud.component';
 import { CrearTarjetaComponent } from './tajertacredito/crear-tarjeta/crear-tarjeta.component';
+import { AsesorVehiculoComponent } from './vehiculos/asesor-vehiculo/asesor-vehiculo.component';
 
 const routes: Routes = [
   { 
@@ -80,6 +81,16 @@ const routes: Routes = [
     component: ClienteVehiculoComponent,
     canActivate: [ValidadorSesionGuard]
   },
+  {
+    path: 'asesor-vehiculo',
+    component: AsesorVehiculoComponent,
+    canActivate: [ValidadorSesionGuard]
+  },
+  {
+    path: 'asesor-solicitud',
+    component: AsesorSolicitudComponent,
+    canActivate: [ValidadorSesionGuard]
+  },
   { 
     path: 'editar-punto/:id',
     component: EditarPuntoComponent,
@@ -124,8 +135,6 @@ const routes: Routes = [
     path: 'crear-tarjeta',
   component: CrearTarjetaComponent
   }
-  
-
 ];
 
 @NgModule({
